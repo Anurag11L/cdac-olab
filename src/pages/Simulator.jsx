@@ -4,10 +4,29 @@ import Draggable from 'react-draggable';
 import Modal from 'react-modal';
 
 
+
 const Simulator = () => {
 // Square---------------------------------------------------------------------//
+
+const [x, setX] = useState(1);
+  const [y, setY] = useState(1);
+  const [b, setB] = useState(x);
+  const [c, setC] = useState(0);
+  const [d, setD] = useState(1);
+  const [theta, setTheta] = useState(0);
+  const [totAngle, setTotAngle] = useState(0);
+  const [drawLine, setDrawLine] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+
     // Canvas-----------------------------------------------------------------//
+    const trace = () => {
+        setDrawLine(true);
+        setClickCount(prevCount => prevCount + 1);
+    };
+
     const canvasRef = useRef(null);
+
+    
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -22,7 +41,7 @@ const Simulator = () => {
         context.strokeStyle = 'green';
       
         // Draw scales along the x-axis
-        const scaleIntervalX = 30; // Interval between scales (adjust as needed)
+        const scaleIntervalX = 50; // Interval between scales
         const startX = scaleIntervalX;
         const endX = width - scaleIntervalX;
         for (let x = startX; x <= endX; x += scaleIntervalX) {
@@ -33,14 +52,14 @@ const Simulator = () => {
         }
       
         // Draw scales along the y-axis
-        const scaleIntervalY = 30; // Interval between scales (adjust as needed)
+        const scaleIntervalY = 50; // Interval between scales
         const startY = scaleIntervalY;
         const endY = height - scaleIntervalY;
         for (let y = startY; y <= endY; y += scaleIntervalY) {
-          context.beginPath();
-          context.moveTo(0, y);
-          context.lineTo(width, y);
-          context.stroke();
+            context.beginPath();
+            context.moveTo(0, y);
+            context.lineTo(width, y);
+            context.stroke();
         }
       
         // Set the color of the center scales to black
@@ -51,7 +70,7 @@ const Simulator = () => {
         // Draw the center scales
         const centerX = width / 2;
         const centerY = height / 2;
-        const centerScaleLength = 300; // Length of center scales (adjust as needed)
+        const centerScaleLength = 300; // Length of center scales
         context.beginPath();
         context.moveTo(centerX, centerY - centerScaleLength);
         context.lineTo(centerX, centerY + centerScaleLength);
@@ -60,19 +79,124 @@ const Simulator = () => {
         context.stroke();
       
         // Draw the center axis labels
-        const labelOffset = -20; // Offset of the labels from the center scales (adjust as needed)
+        const labelOffset = -20; // Offset of the labels from the center scales
         context.fillText('X', centerX + centerScaleLength + labelOffset, centerY - labelOffset);
         context.fillText('Y', centerX - labelOffset, centerY - centerScaleLength - labelOffset);
       
         // Number the x-axis
-        const xAxisNumberOffset = 14; // Offset of the numbers from the x-axis (adjust as needed)
-        const xAxisNumberStart = scaleIntervalX; // Start number (adjust as needed)
-        const xAxisNumberEnd = (width - scaleIntervalX) / 2; // End number (adjust as needed)
-        const xAxisNumberInterval = 30; // Interval between x-axis numbers (adjust as needed)
+        const xAxisNumberOffset = 14; 
+        const xAxisNumberStart = scaleIntervalX; 
+        const xAxisNumberEnd = (width - scaleIntervalX) / 2;
+        const xAxisNumberInterval = 50; 
         for (let x = xAxisNumberStart; x <= xAxisNumberEnd; x += xAxisNumberInterval) {
-          context.fillText((x / scaleIntervalX).toString(), centerX + x - xAxisNumberOffset, centerY + xAxisNumberOffset);
+            context.fillText((x / scaleIntervalX).toString(), centerX + x - xAxisNumberOffset, centerY + xAxisNumberOffset);
         }
-      }, []);
+        context.lineWidth = 2;
+
+        // Initialize variables
+        let x = 1;
+        let y = 1;
+        let b = x;
+        let c = 0;
+        let d = 1;
+        let theta = 70;
+
+        // Draw the lines on button click
+        if (clickCount >= 1) {
+            // if(angle === theta || angle){
+                const unitLength = 50; 
+                context.strokeStyle = 'red';
+                context.lineWidth = 2;
+                context.beginPath();
+                context.moveTo(centerX + unitLength, centerY);
+                context.lineTo(centerX, centerY);
+                context.moveTo(centerX + unitLength * x, centerY - unitLength * y);
+                context.lineTo(centerX + unitLength * d, centerY - unitLength * c);
+                context.lineTo(centerX + unitLength * x, centerY - unitLength * y);
+                context.lineTo(centerX, centerY);
+                context.stroke();
+            // }
+        }
+
+        // Update variables for the next line segment
+        let b1 = Math.sqrt(1 + b * b);
+        let theta1 = theta + Math.atan(1 / b1);
+        let c1 = y;
+        let d1 = x;
+        let y1 = Math.sqrt(1 + b * b) * Math.sin(theta1);
+        let x1 = Math.sqrt(1 + b * b) * Math.cos(theta1);
+
+        if (clickCount >= 2) {
+            const unitLength = 50; 
+            context.strokeStyle = 'red';
+            context.beginPath();
+            context.moveTo(centerX + unitLength * x1, centerY - unitLength * y1);
+            context.lineTo(centerX + unitLength * d1, centerY - unitLength * c1);
+            context.lineTo(centerX + unitLength * x1, centerY - unitLength * y1);
+            context.lineTo(centerX, centerY);
+            context.stroke();
+        }
+
+        // Update variables for the next line segment
+        let b2 = Math.sqrt(1 + b1 * b1);
+        let theta2 = theta1 + Math.tan(1 / b2);
+        let c2 = y1;
+        let d2 = x1;
+        let y2 = Math.sqrt(1 + b1 * b1) * Math.sin(theta2);
+        let x2 = Math.sqrt(1 + b1 * b1) * Math.cos(theta2);
+
+        if (clickCount >= 3) {
+            const unitLength = 50; 
+            context.strokeStyle = 'red';
+            context.beginPath();
+            context.moveTo(centerX + unitLength * x2, centerY - unitLength * y2);
+            context.lineTo(centerX + unitLength * d2, centerY - unitLength * c2);
+            context.lineTo(centerX + unitLength * x2, centerY - unitLength * y2);
+            context.lineTo(centerX, centerY);
+            context.stroke();
+        }
+
+        // Update variables for the next line segment
+        let b3 = Math.sqrt(1 + b2 * b2);
+        let theta3 = theta2 + Math.atan(1 / b3);
+        let c3 = y2;
+        let d3 = x2;
+        let y3 = Math.sqrt(1 + b2 * b2) * Math.sin(theta3);
+        let x3 = Math.sqrt(1 + b2 * b2) * Math.cos(theta3);
+
+        if (clickCount >= 4) {
+            const unitLength = 50; 
+            context.strokeStyle = 'red';
+            context.beginPath();
+            context.moveTo(centerX + unitLength * x3, centerY - unitLength * y3);
+            context.lineTo(centerX + unitLength * d3, centerY - unitLength * c3);
+            context.lineTo(centerX + unitLength * x3, centerY - unitLength * y3);
+            context.lineTo(centerX, centerY);
+            context.stroke();
+        }
+
+        // Update variables for the next line segment
+        let b4 = Math.sqrt(1 + b3 * b3);
+        let theta4 = theta3 + Math.atan(1 / b4);
+        let c4 = y3;
+        let d4 = x3;
+        let y4 = Math.sqrt(1 + b3 * b3) * Math.sin(theta4);
+        let x4 = Math.sqrt(1 + b3 * b3) * Math.cos(theta4);
+
+        if (clickCount >= 5) {
+            const unitLength = 50; 
+            context.strokeStyle = 'red';
+            context.beginPath();
+            context.moveTo(centerX + unitLength * x4, centerY - unitLength * y4);
+            context.lineTo(centerX + unitLength * d4, centerY - unitLength * c4);
+            context.lineTo(centerX + unitLength * x4, centerY - unitLength * y4);
+            context.lineTo(centerX, centerY);
+            context.stroke();
+        }
+
+
+        
+    }, [clickCount]);
       
       
     // Canvas-----------------------------------------------------------------//
@@ -120,18 +244,7 @@ const Simulator = () => {
             },
         };
   
-    
 
-    
-        const renderInstruction = () => {
-            if (traceCount === 1) {
-                return <p className='labels'>First instruction...</p>;
-            } else if (traceCount === 2) {
-                return <p className='labels'>Second instruction...</p>;
-            }
-            // Add more conditions for additional instructions if needed
-            return null;
-        };
 
         const closeErrorModal = () => {
             setShowErrorModal(false);
@@ -259,7 +372,7 @@ const Simulator = () => {
                         {/* </div> */}
 
                         {showErrorModal ?null :(
-                            <button className='btn' >
+                            <button className='btn' onClick={trace} >
                                 Trace
                             </button>
                         )}
@@ -293,10 +406,3 @@ const Simulator = () => {
 };
 
 export default Simulator;
-
-
-
-// const handleTraceClick = () => {
-//     setShowNextInstruction(true);
-//     setTraceCount(traceCount + 1);
-// };
