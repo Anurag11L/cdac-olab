@@ -8,28 +8,29 @@ import Modal from 'react-modal';
 const Simulator = () => {
 // Square---------------------------------------------------------------------//
 
-const [x, setX] = useState(1);
-  const [y, setY] = useState(1);
-  const [b, setB] = useState(x);
-  const [c, setC] = useState(0);
-  const [d, setD] = useState(1);
-  const [theta, setTheta] = useState(0);
-  const [totAngle, setTotAngle] = useState(0);
-  const [drawLine, setDrawLine] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
+    const [x, setX] = useState(1);
+    const [y, setY] = useState(1);
+    const [b, setB] = useState(x);
+    const [c, setC] = useState(0);
+    const [d, setD] = useState(1);
+    const [theta, setTheta] = useState(0);
+    const [totAngle, setTotAngle] = useState(0);
+    const [drawLine, setDrawLine] = useState(false);
+    const [clickCount, setClickCount] = useState(0);
 
     // Canvas-----------------------------------------------------------------//
+    
+
+    const canvasRef1 = useRef(null);
+
     const trace = () => {
         setDrawLine(true);
         setClickCount(prevCount => prevCount + 1);
     };
-
-    const canvasRef = useRef(null);
-
     
 
     useEffect(() => {
-        const canvas = canvasRef.current;
+        const canvas = canvasRef1.current;
         const context = canvas.getContext('2d');
         const width = canvas.width;
         const height = canvas.height;
@@ -93,111 +94,67 @@ const [x, setX] = useState(1);
         }
         context.lineWidth = 2;
 
-        // Initialize variables
+
+        ///////////////////////////////////////////////////////////////
+        // const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        // const width = canvas.width;
+        // const height = canvas.height;
+        // const centerX = width / 2;
+        // const centerY = height / 2;
         let x = 1;
         let y = 1;
         let b = x;
         let c = 0;
         let d = 1;
-        let theta = 70;
-
-        // Draw the lines on button click
-        if (clickCount >= 1) {
-            // if(angle === theta || angle){
-                const unitLength = 50; 
-                context.strokeStyle = 'red';
-                context.lineWidth = 2;
-                context.beginPath();
-                context.moveTo(centerX + unitLength, centerY);
-                context.lineTo(centerX, centerY);
-                context.moveTo(centerX + unitLength * x, centerY - unitLength * y);
-                context.lineTo(centerX + unitLength * d, centerY - unitLength * c);
-                context.lineTo(centerX + unitLength * x, centerY - unitLength * y);
-                context.lineTo(centerX, centerY);
-                context.stroke();
-            // }
-        }
-
-        // Update variables for the next line segment
-        let b1 = Math.sqrt(1 + b * b);
-        let theta1 = theta + Math.atan(1 / b1);
-        let c1 = y;
-        let d1 = x;
-        let y1 = Math.sqrt(1 + b * b) * Math.sin(theta1);
-        let x1 = Math.sqrt(1 + b * b) * Math.cos(theta1);
-
-        if (clickCount >= 2) {
-            const unitLength = 50; 
-            context.strokeStyle = 'red';
-            context.beginPath();
-            context.moveTo(centerX + unitLength * x1, centerY - unitLength * y1);
-            context.lineTo(centerX + unitLength * d1, centerY - unitLength * c1);
-            context.lineTo(centerX + unitLength * x1, centerY - unitLength * y1);
-            context.lineTo(centerX, centerY);
-            context.stroke();
-        }
-
-        // Update variables for the next line segment
-        let b2 = Math.sqrt(1 + b1 * b1);
-        let theta2 = theta1 + Math.tan(1 / b2);
-        let c2 = y1;
-        let d2 = x1;
-        let y2 = Math.sqrt(1 + b1 * b1) * Math.sin(theta2);
-        let x2 = Math.sqrt(1 + b1 * b1) * Math.cos(theta2);
-
-        if (clickCount >= 3) {
-            const unitLength = 50; 
-            context.strokeStyle = 'red';
-            context.beginPath();
-            context.moveTo(centerX + unitLength * x2, centerY - unitLength * y2);
-            context.lineTo(centerX + unitLength * d2, centerY - unitLength * c2);
-            context.lineTo(centerX + unitLength * x2, centerY - unitLength * y2);
-            context.lineTo(centerX, centerY);
-            context.stroke();
-        }
-
-        // Update variables for the next line segment
-        let b3 = Math.sqrt(1 + b2 * b2);
-        let theta3 = theta2 + Math.atan(1 / b3);
-        let c3 = y2;
-        let d3 = x2;
-        let y3 = Math.sqrt(1 + b2 * b2) * Math.sin(theta3);
-        let x3 = Math.sqrt(1 + b2 * b2) * Math.cos(theta3);
-
-        if (clickCount >= 4) {
-            const unitLength = 50; 
-            context.strokeStyle = 'red';
-            context.beginPath();
-            context.moveTo(centerX + unitLength * x3, centerY - unitLength * y3);
-            context.lineTo(centerX + unitLength * d3, centerY - unitLength * c3);
-            context.lineTo(centerX + unitLength * x3, centerY - unitLength * y3);
-            context.lineTo(centerX, centerY);
-            context.stroke();
-        }
-
-        // Update variables for the next line segment
-        let b4 = Math.sqrt(1 + b3 * b3);
-        let theta4 = theta3 + Math.atan(1 / b4);
-        let c4 = y3;
-        let d4 = x3;
-        let y4 = Math.sqrt(1 + b3 * b3) * Math.sin(theta4);
-        let x4 = Math.sqrt(1 + b3 * b3) * Math.cos(theta4);
-
-        if (clickCount >= 5) {
-            const unitLength = 50; 
-            context.strokeStyle = 'red';
-            context.beginPath();
-            context.moveTo(centerX + unitLength * x4, centerY - unitLength * y4);
-            context.lineTo(centerX + unitLength * d4, centerY - unitLength * c4);
-            context.lineTo(centerX + unitLength * x4, centerY - unitLength * y4);
-            context.lineTo(centerX, centerY);
-            context.stroke();
-        }
-
-
+        let theta = 0;
+        // let rotateangle;
+        let totangle = 0;
+        let count = 1;
+    
+        const trace1 = () => {
+            //---------------------------------------------------------------
+        //   rotateangle = Math.abs(rotateangle) % 360;
+          ctx.beginPath();
+          ctx.moveTo(centerX +50, centerY);
+          ctx.lineTo(centerX, centerY );
+    
+          ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
+          ctx.lineTo(centerX + 50 * d, centerY - 50 * c);
+          ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
+          ctx.lineTo(centerX, centerY);
+    
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+    
+          b = Math.sqrt(1 + b * b);
+          theta += Math.atan(1 / b);
+          c = y;
+          d = x;
+          y = Math.sqrt(1 + b * b) * Math.sin(theta);
+          x = Math.sqrt(1 + b * b) * Math.cos(theta);
+          count += 1;
+        //   totangle += Math.floor(Math.atan(1 / Math.sqrt(count)) * 180 / Math.PI);
+        //   console.log(totangle);
+        };
+    
+        // Event handler for the button click
+        const traceClick1 = () => {
+          trace1();
+        };
+    
+        // Add event listener to the button
+        const button = document.getElementById('traceButton');
+        button.addEventListener('click', traceClick1);
+    
+        return () => {
+          // Cleanup: Remove event listener when component unmounts
+          button.removeEventListener('click', traceClick1);
+        };
         
-    }, [clickCount]);
+    }, []);
       
+    
       
     // Canvas-----------------------------------------------------------------//
 
@@ -213,11 +170,11 @@ const [x, setX] = useState(1);
         const [showErrorModal, setShowErrorModal] = useState(false);
         const [rotationAngle, setRotationAngle] = useState(0);
 
-    
+        //-------------------------//---------------------//--------------------//-------------
         const handleClick = (event) => {
             const inputB = parseInt(event.target.value);
             if (inputB === 1 || inputB > 0) {
-              const c = inputB + 1;
+              const c = Math.sqrt(inputB);
               setData(c);
               setPrint(false);
               setShowNextInstruction(false);
@@ -310,7 +267,7 @@ const [x, setX] = useState(1);
             {/* Square--------------------------------------------------------------------------------------------------------------*/}
                 <div>                    
                         <div className="canvas-container">
-                            <canvas ref={canvasRef} className="square" id='square' width={600} height={600}></canvas>
+                            <canvas ref={canvasRef1} className="square" id='square' width={600} height={600}></canvas>
                             <div className="draggable-container">
                                 <Draggable bounds=".square" axis="both" handle=".drag-handle">
                                     <div className="drag-element">
@@ -338,49 +295,37 @@ const [x, setX] = useState(1);
             {/* Rectangle-----------------------------------------------------------------------------------------------------------*/}
                 <div>
                     <div className='rec'>
+                    <div className='labels'> Try calculating the hypotenious you found.</div>
+                    
+                        <div className='labels'><div className='labels'>Considering side <i>a</i> to be always 1.</div></div>
+                        {/* <div className='labels'><div>Enter Side <i>√b</i>:</div></div> */}
 
-                        <p className='labels'><div>[ Note: To draw the n<sup>th</sup> triangle, b = n ] </div></p>
+                        {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)}
 
-                        <div className='labels'><div>Considering Side <i>a</i> to be always 1</div></div>
-                        <div className='labels'><div>Enter Side <i>√b</i>:</div></div>
+                        <br></br>
 
-                        {showErrorModal ?null :(
-                        <input type='number' name='input1' className='btn' onChange={handleClick}></input>)}
+                        {showErrorModal ?null :(<button className='btn' onClick={() => setPrint(true)}>Calculate</button>)}
 
-                        {showErrorModal ?null :(
-                            <button className='btn' onClick={() => setPrint(true)}>Calculate c</button>
-                        )}
-
-                        <div className='labels'><div>The value of c is: ( √{print ? <>{data}</> : null} )</div></div>
+                        <div ><div className='labels'>Hypoteneous length ( c ) : <br></br>( {print ? <>{data}</> : null} )</div></div>
 
                         <img src='./src/components/diagram1.png' className='diagram'></img><br></br>
 
                         <div className='bind'>
-                            {showErrorModal ?null :(
-                                <button className='btn' onClick={rotateByTenDegrees}>
-                                    Rotate by 10°
-                                </button>
-                            )}
+                            {showErrorModal ?null :(<button className='btn' onClick={rotateByTenDegrees}>Rotate by 10°</button>)}
 
-                            {showErrorModal ?null :(
-                                <button className='btn' onClick={rotateByOneDegrees}>
-                                    Rotate by 1°
-                                </button>
-                            )}
+                            {showErrorModal ?null :(<button className='btn' onClick={rotateByOneDegrees}> Rotate by 1°</button>)}
                         </div>
                             
                         {/* </div> */}
 
-                        {showErrorModal ?null :(
-                            <button className='btn' onClick={trace} >
-                                Trace
-                            </button>
-                        )}
+                        {showErrorModal ?null :(<button className='btn' id='traceButton' >Trace</button>)}
+
                         <br></br>
                         {showNextInstruction && renderInstruction()}
 
-                        <p>Protrator is rotated by angle: {angle}°</p>
-                    
+                        <p className='labels'>Protrator is rotated by angle: {angle}°</p>
+
+                        <p className='labels'><div className='labels'>[ Note: To draw the n<sup>th</sup> triangle, b = n ] </div></p>
                     
                     </div>
                 </div>
@@ -398,6 +343,7 @@ const [x, setX] = useState(1);
       >
         <h2 className="error-message">Error</h2>
         <p className="error-message">Inapropriate input.</p>
+        <p className="error-message">Root of numbers less than 0 is out of syllabus.</p>
         <button className='btn' onClick={closeErrorModal}>Close</button>
       </Modal>
 
