@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
 
 const SquareRootSpiral = () => {
   const canvasRef = useRef(null);
+  const [angle, setAngle] = useState(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -16,13 +18,11 @@ const SquareRootSpiral = () => {
     let c = 0;
     let d = 1;
     let theta = 0;
-    // let rotateangle;
-    let totangle = 0;
     let count = 1;
+    let ert = 0;
 
     const trace = () => {
         //---------------------------------------------------------------
-    //   rotateangle = Math.abs(rotateangle) % 360;
       ctx.beginPath();
       ctx.moveTo(centerX +50, centerY);
       ctx.lineTo(centerX, centerY );
@@ -35,15 +35,27 @@ const SquareRootSpiral = () => {
       ctx.strokeStyle = "#ffffff";
       ctx.stroke();
 
-      b = Math.sqrt(1 + b * b);
-      theta += Math.atan(1 / b);
+        // Calculate the angle
+    const angleRadians = Math.atan2(y, x);
+    const angleDegrees = (angleRadians * 180) / Math.PI;
+    setAngle(angleDegrees);
+
+    
+      b = Math.sqrt(1 + (b * b));
+      if(count === 1){
+        ert = Math.atan(1,(Math.sqrt(2)));
+      }
+      else{
+        ert = 0;
+      }
+      theta =theta+ert+ Math.atan(1 / b);
+      
       c = y;
       d = x;
       y = Math.sqrt(1 + b * b) * Math.sin(theta);
       x = Math.sqrt(1 + b * b) * Math.cos(theta);
-      count += 1;
-    //   totangle += Math.floor(Math.atan(1 / Math.sqrt(count)) * 180 / Math.PI);
-    //   console.log(totangle);
+      count =count + 1;
+    
     };
 
     // Event handler for the button click
@@ -65,7 +77,8 @@ const SquareRootSpiral = () => {
     <div>
         <canvas ref={canvasRef} width={500} height={500} className='canva' />
         <button id="drawButton" className='btn'>Draw</button>
-
+        <p className='labels'></p>
+        <div>Angle: {angle.toFixed(2)}°</div>
     </div>
   );
 };

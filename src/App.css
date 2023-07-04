@@ -230,7 +230,9 @@ body {
     width: 250px;
     height: 250px;
   }
-  
+  .spiral{
+    width: 220px;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -259,6 +261,9 @@ body {
     width : 300px;
     height: 300px;
   }
+  .spiral{
+    width: 300px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -283,6 +288,9 @@ body {
   .canva{
     width: 400px;
     height: 400px;
+  }
+  .spiral{
+    width: 400px;
   }
 }
 
@@ -311,6 +319,9 @@ body {
     width: 500px;
     height: 500px;
   }
+  .spiral{
+    width: 500px;
+  }
 }
 
 @media only screen and (min-width: 769px) {
@@ -337,6 +348,9 @@ body {
   .canva{
     width: 600px;
     height: 600px;
+  }
+  .spiral{
+    width: 500px;
   }
 }
 
@@ -365,6 +379,9 @@ body {
     width: 600px;
     height: 600px;
   }
+  .spiral{
+    width: 550px;
+  }
 }
 
 @media only screen and (min-width: 1441px) {
@@ -388,6 +405,9 @@ body {
   .canva{
     width: 600px;
     height: 600px;
+  }
+  .spiral{
+    width: 600px;
   }
   
 }
@@ -413,6 +433,9 @@ body {
   .canva{
     width: 1000px;
     height: 1000px;
+  }
+  .spiral{
+    width: 800px;
   }
 }
 
@@ -509,4 +532,8 @@ body {
 
 .canva{
   border: 2px dotted rgb(255, 255, 255);
+}
+
+.can{
+  border: 2px solid white;
 }

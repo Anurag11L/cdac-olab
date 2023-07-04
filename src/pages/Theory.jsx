@@ -33,6 +33,7 @@ const Theory = () => {
             -THEORY-
         </div>
         <SquareRootSpiral />
+        <img src='./src/components/spiral.png' className='spiral'></img>
         {/* <Outlet></Outlet> */}
     </>
   );

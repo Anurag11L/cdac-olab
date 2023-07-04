@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LineCanvas from '../components/lineCanvas';
 
 const Animation = () => {
     
@@ -28,6 +29,7 @@ const Animation = () => {
         <div className='title'>
             -ANIMATION-
         </div>
+        <LineCanvas></LineCanvas>
     </>
   );
 };

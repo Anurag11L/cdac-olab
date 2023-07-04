@@ -96,12 +96,7 @@ const Simulator = () => {
 
 
         ///////////////////////////////////////////////////////////////
-        // const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        // const width = canvas.width;
-        // const height = canvas.height;
-        // const centerX = width / 2;
-        // const centerY = height / 2;
         let x = 1;
         let y = 1;
         let b = x;
@@ -111,12 +106,14 @@ const Simulator = () => {
         // let rotateangle;
         let totangle = 0;
         let count = 1;
+        let ert = 0;
     
         const trace1 = () => {
             //---------------------------------------------------------------
         //   rotateangle = Math.abs(rotateangle) % 360;
+        
           ctx.beginPath();
-          ctx.moveTo(centerX +50, centerY);
+          ctx.moveTo(centerX + 50, centerY);
           ctx.lineTo(centerX, centerY );
     
           ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
@@ -126,14 +123,24 @@ const Simulator = () => {
     
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+
     
-          b = Math.sqrt(1 + b * b);
-          theta += Math.atan(1 / b);
+          b = Math.sqrt(1 + (b * b));
+          if(count === 1){
+            ert = Math.atan(1,(Math.sqrt(2)));
+          }
+          else{
+            ert = 0;
+          }
+          theta =theta+ert+ Math.atan(1 / b);
           c = y;
           d = x;
           y = Math.sqrt(1 + b * b) * Math.sin(theta);
           x = Math.sqrt(1 + b * b) * Math.cos(theta);
-          count += 1;
+          count =count + 1;
+
+          
         //   totangle += Math.floor(Math.atan(1 / Math.sqrt(count)) * 180 / Math.PI);
         //   console.log(totangle);
         };
@@ -151,6 +158,8 @@ const Simulator = () => {
           // Cleanup: Remove event listener when component unmounts
           button.removeEventListener('click', traceClick1);
         };
+
+        
         
     }, []);
       

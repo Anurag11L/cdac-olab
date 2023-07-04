@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SquareRootSpiral from '../components/SpiralRootSpiral';
 
 
 const Home = () => {
@@ -26,6 +27,11 @@ const Home = () => {
                 </nav>
             </div>
         </header>
+        <div className='title'>
+            -THEORY-
+        </div>
+        <SquareRootSpiral />
+        <img src='./src/components/spiral.png' className='spiral'></img>
         
         </>
   );
