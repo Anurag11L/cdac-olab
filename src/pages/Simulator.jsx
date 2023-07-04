@@ -7,29 +7,30 @@ import Modal from 'react-modal';
 
 const Simulator = () => {
 // Square---------------------------------------------------------------------//
-
-    const [x, setX] = useState(1);
-    const [y, setY] = useState(1);
-    const [b, setB] = useState(x);
-    const [c, setC] = useState(0);
-    const [d, setD] = useState(1);
-    const [theta, setTheta] = useState(0);
-    const [totAngle, setTotAngle] = useState(0);
-    const [drawLine, setDrawLine] = useState(false);
-    const [clickCount, setClickCount] = useState(0);
-
+    const [rotation, setRotation] = useState(0);
+    const [data, setData] = useState(null);
+    const [print, setPrint] = useState(false);
+    const [showNextInstruction, setShowNextInstruction] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
     // Canvas-----------------------------------------------------------------//
-    
-
     const canvasRef1 = useRef(null);
-
-    const trace = () => {
-        setDrawLine(true);
-        setClickCount(prevCount => prevCount + 1);
-    };
     
+            //Button onClick operations----------------------------------------------//
+            const rotateByTenDegrees = () => {
+              const newRotation = (rotation - 10)%360;
+              setRotation(newRotation >= -360 ? newRotation : 0);
+            };
+            
+            const rotateByOneDegrees = () => {
+              const newRotation = rotation - 1;
+              setRotation(newRotation >= -360 ? newRotation : 0);
+            };
+            
+            
+                let angle = -1 * rotation;
 
     useEffect(() => {
+      
         const canvas = canvasRef1.current;
         const context = canvas.getContext('2d');
         const width = canvas.width;
@@ -104,51 +105,64 @@ const Simulator = () => {
         let d = 1;
         let theta = 0;
         // let rotateangle;
-        let totangle = 0;
+        // let totangle = 0;
         let count = 1;
         let ert = 0;
     
-        const trace1 = () => {
-            //---------------------------------------------------------------
-        //   rotateangle = Math.abs(rotateangle) % 360;
-        
-          ctx.beginPath();
-          ctx.moveTo(centerX + 50, centerY);
-          ctx.lineTo(centerX, centerY );
-    
-          ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
-          ctx.lineTo(centerX + 50 * d, centerY - 50 * c);
-          ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
-          ctx.lineTo(centerX, centerY);
-    
-          ctx.strokeStyle = "#ff0000";
-          ctx.stroke();
+        //---------------------------------------------------------------trace()----
 
+                                              const trace1 = () => {
+                                                // if(theta ===angle){
+                                                  ctx.beginPath();
+                                                  ctx.moveTo(centerX + 50, centerY);
+                                                  ctx.lineTo(centerX, centerY );
+                                            
+                                                  ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
+                                                  ctx.lineTo(centerX + 50 * d, centerY - 50 * c);
+                                                  ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
+                                                  ctx.lineTo(centerX, centerY);
+                                            
+                                                  ctx.strokeStyle = "#ff0000";
+                                                  ctx.stroke();
 
-    
-          b = Math.sqrt(1 + (b * b));
-          if(count === 1){
-            ert = Math.atan(1,(Math.sqrt(2)));
-          }
-          else{
-            ert = 0;
-          }
-          theta =theta+ert+ Math.atan(1 / b);
-          c = y;
-          d = x;
-          y = Math.sqrt(1 + b * b) * Math.sin(theta);
-          x = Math.sqrt(1 + b * b) * Math.cos(theta);
-          count =count + 1;
+                                                  // Calculate and display the angle
+                                                  const angleRadians = Math.atan2(y, x);
+                                                  const angleDegrees = (angleRadians * 180) / Math.PI;
+                                                  const angleText = `Angle: ${angleDegrees.toFixed(2)}°`;
+                                                  ctx.font = '14px Arial';
+                                                  ctx.fillStyle = 'white';
+                                                //   ctx.clearRect(0, 0);
+                                                  ctx.fillText(angleText, 50, 20);
 
-          
-        //   totangle += Math.floor(Math.atan(1 / Math.sqrt(count)) * 180 / Math.PI);
-        //   console.log(totangle);
-        };
+                                            
+                                                  b = Math.sqrt(1 + (b * b));
+                                                  if(count === 1){
+                                                    ert = Math.atan(1,(Math.sqrt(2)));
+                                                  }
+                                                  else{
+                                                    ert = 0;
+                                                  }
+                                                  theta =theta+ert+ Math.atan(1 / b);
+                                                  
+                                                  c = y;
+                                                  d = x;
+                                                  y = Math.sqrt(1 + b * b) * Math.sin(theta);
+                                                  x = Math.sqrt(1 + b * b) * Math.cos(theta);
+                                                  count =count + 1;
+                                                // }
+                                              };
     
         // Event handler for the button click
         const traceClick1 = () => {
-          trace1();
+          // if (Math.abs(theta - angle) <= 2){
+            trace1();
+          // }
         };
+
+        // const handleClick = () => {
+        //   traceClick1();
+        // };
+        
     
         // Add event listener to the button
         const button = document.getElementById('traceButton');
@@ -157,11 +171,12 @@ const Simulator = () => {
         return () => {
           // Cleanup: Remove event listener when component unmounts
           button.removeEventListener('click', traceClick1);
-        };
-
+        }
         
-        
+  
+  
     }, []);
+    
       
     
       
@@ -172,12 +187,7 @@ const Simulator = () => {
 // Square---------------------------------------------------------------------//
 
     //Rectangle-------------------------------------------------------------//
-        const [data, setData] = useState(null);
-        const [print, setPrint] = useState(false);
-        const [showNextInstruction, setShowNextInstruction] = useState(false);
-        const [traceCount, setTraceCount] = useState(0);
-        const [showErrorModal, setShowErrorModal] = useState(false);
-        const [rotationAngle, setRotationAngle] = useState(0);
+
 
         //-------------------------//---------------------//--------------------//-------------
         const handleClick = (event) => {
@@ -210,24 +220,31 @@ const Simulator = () => {
             },
         };
   
-
-
         const closeErrorModal = () => {
             setShowErrorModal(false);
           };
 
-        //Button onClick operations----------------------------------------------//
-            const rotateByTenDegrees = () => {
-                const newRotationAngle = rotationAngle - 10;
-                setRotationAngle(newRotationAngle >= -360 ? newRotationAngle : 0);
-            };
-        
-            const rotateByOneDegrees = () => {
-            const newRotationAngle = rotationAngle - 1;
-            setRotationAngle(newRotationAngle >= -360 ? newRotationAngle : 0);
-            };
-        
-            const angle = -1 * rotationAngle;
+
+
+          // const handleCreateClick = () =>{
+          //   if (angle === 45) {
+          //       const canvas = canvasRef1.current;
+          //       const ctx = canvas.getContext('2d');
+          //       const centerX = canvas.width / 2;
+          //       const centerY = canvas.height / 2;
+          //       const radius = 50;
+            
+          //       // ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+            
+          //       ctx.lineWidth = 2;
+          //       ctx.strokeStyle = 'red';
+          //       ctx.fillStyle = 'transparent';
+            
+          //       ctx.beginPath();
+          //       ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+          //       ctx.stroke();
+          //     }
+          //   }
         //Button onClick operations----------------------------------------------//
     //Rectangle-------------------------------------------------------------//
   
@@ -286,7 +303,7 @@ const Simulator = () => {
                                         height={"150px"}
                                         className="protract"
                                         style={{
-                                            transform: `rotate(${rotationAngle}deg)`,
+                                            transform: `rotate(${rotation}deg)`,
                                             transformOrigin: 'center bottom',
                                         }}
                                         />
@@ -307,7 +324,6 @@ const Simulator = () => {
                     <div className='labels'> Try calculating the hypotenious you found.</div>
                     
                         <div className='labels'><div className='labels'>Considering side <i>a</i> to be always 1.</div></div>
-                        {/* <div className='labels'><div>Enter Side <i>√b</i>:</div></div> */}
 
                         {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)}
 
@@ -327,7 +343,8 @@ const Simulator = () => {
                             
                         {/* </div> */}
 
-                        {showErrorModal ?null :(<button className='btn' id='traceButton' >Trace</button>)}
+                        {showErrorModal ?null :(<button className='btn' id='traceButton'  >Trace</button>)}
+                        {/* onClick={handleCreateClick} */}
 
                         <br></br>
                         {showNextInstruction && renderInstruction()}

@@ -41,7 +41,7 @@ const LineCanvas = () => {
   };
 
   const handleCreateClick = () => {
-    if (rotation === 40) {
+    if (rotation >= 30 && rotation <=50) {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
       const centerX = canvas.width / 2;
