@@ -48,8 +48,6 @@ const LineCanvas = () => {
       const centerY = canvas.height / 2;
       const radius = 50;
   
-      ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-  
       ctx.lineWidth = 2;
       ctx.strokeStyle = 'red';
       ctx.fillStyle = 'transparent';
