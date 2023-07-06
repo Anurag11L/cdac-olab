@@ -125,6 +125,7 @@ return (
             <div className='rec'>
                 <button className='btn' id='traceButton' >Trace</button>
                 <br></br>
+                
             </div>
         </div>
 

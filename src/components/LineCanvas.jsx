@@ -10,6 +10,7 @@ const LineCanvas = () => {
   const [theta, setTheta] = useState(0);
   const [count, setCount] = useState(1);
   const [ert, setErt] = useState(0);
+  const [angleText, setAngleText] = useState('');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -34,30 +35,43 @@ const LineCanvas = () => {
 
     const angleRadians = Math.atan2(y, x);
     const angleDegrees = (angleRadians * 180) / Math.PI;
-    const angleText = `Angle: ${angleDegrees.toFixed(2)}°`;
+    const newAngleText = `Angle: ${angleDegrees.toFixed(2)}°`;
     ctx.font = '14px Arial';
     ctx.fillStyle = 'white';
-    ctx.fillText(angleText, 50, 20);
+    // ctx.fillText(newAngleText, 50, 20);
 
+    
+    // if (count === 1) {
+    //   setErt(Math.atan(1, Math.sqrt(2)));
+    // } else {
+    //   setErt(0);
+    // }
     setB(Math.sqrt(1 + (b * b)));
-    if (count === 1) {
-      setErt(Math.atan(1, Math.sqrt(2)));
-    } else {
-      setErt(0);
-    }
-    setTheta(theta + ert + Math.atan(1 / b));
-
+    setTheta(theta  + Math.atan(1/ b));
+    
     setC(y);
     setD(x);
     setY(Math.sqrt(1 + b * b) * Math.sin(theta));
     setX(Math.sqrt(1 + b * b) * Math.cos(theta));
-    setCount(count + 1);
+    // setCount(0);
+    setAngleText(newAngleText);
   };
 
   return (
-    <div>
+    <div className='whole'>
       <canvas className="can" ref={canvasRef} width={300} height={300} />
-      <button onClick={handleCreateClick}>Create</button>
+      <button className='btn' onClick={handleCreateClick}>Create</button>
+
+      <div className='right'>
+        <p>(x, y) = ({x}, {y})</p>
+        <p>b: {b}</p>
+        <p>(d, c) = ({d}, {c})</p>
+        <p>count: {count}</p>
+        <p>ert: {ert}</p>
+        <p>{angleText}</p>
+        <p>{theta}</p>
+      </div>
+
     </div>
   );
 };

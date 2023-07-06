@@ -104,8 +104,6 @@ const Simulator = () => {
         let c = 0;
         let d = 1;
         let theta = 0;
-        // let rotateangle;
-        // let totangle = 0;
         let count = 1;
         let ert = 0;
     

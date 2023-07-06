@@ -537,3 +537,8 @@ body {
 .can{
   border: 2px solid white;
 }
+
+.whole{
+  display: flex;
+  justify-content:center;
+}

@@ -1,5 +1,4 @@
 import './App.css'
-// import Board from "e:/cdac final project/commit first cdac react app/squarerootspiral/src/components/board" ;
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Home from './pages/Home';
 import Theory from "./pages/Theory";
@@ -13,10 +12,6 @@ import FeedBack from './pages/FeedBack';
 function App() {
   
   return (
-    
-    // <div className='App'>
-    //   <Board/>
-    // </div>
     <>
       <BrowserRouter>
         <Routes>
