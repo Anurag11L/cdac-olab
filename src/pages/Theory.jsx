@@ -33,8 +33,27 @@ const Theory = () => {
             -THEORY-
         </div>
         <SquareRootSpiral />
-        <img src='./src/components/spiral.png' className='spiral'></img>
-        {/* <Outlet></Outlet> */}
+        <div className='theory'>
+        
+            <div>In geometry, the spiral of Theodorus also called square root spiral,<br></br> Spiral of Einstein, Pythagorean spiral, or Pythagoras's snail is a spiral<br></br> composed of right triangles, placed edge-to-edge. It was named after <br></br>Theodorus of Cyrene.<br></br>
+            <p style={{ fontSize: '30px', fontWeight: 'bold' }}>Construction</p>
+            The spiral is started with an isosceles right triangle, with each leg having<br></br> unit length. Another right triangle is formed, an automedian right triangle <br></br>with one leg being the hypotenuse of the prior triangle (with length the <br></br>square root of 2) and the other leg having length of 1; the length<br></br> of the hypotenuse of this second triangle is the square root of 3. The process<br></br> then repeats; the nth triangle in the sequence is a right triangle with the<br></br> side lengths √ n and 1, and with hypotenuse √n+1.<br></br> For example, the 16th triangle has sides measuring 4=√16 ,<br></br> 1 and hypotenuse of √17.
+            </div>
+            <img src='./src/components/spiral.png' className='spiral'></img>
+        </div>
+        <div>
+            <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
+                History and Uses
+            </p>
+            <div>Although all of Theodorus' work has been lost, Plato put Theodorus into his dialogue Theaetetus, which tells of his work. It is assumed that Theodorus had proved that all of the square roots of non-square integers from 3 to 17 are irrational by means of the Spiral of Theodorus.
+
+Plato does not attribute the irrationality of the square root of 2 to Theodorus, because it was well known before him. Theodorus and Theaetetus split the rational numbers and irrational numbers into different categories.</div>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
     </>
   );
 };

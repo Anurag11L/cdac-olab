@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import LineCanvas from '../components/lineCanvas';
 
 const Reference = () => {
     
@@ -28,6 +29,7 @@ const Reference = () => {
         <div className='title'>
             -REFERENCE-
         </div>
+        <LineCanvas></LineCanvas>
     </>
   )
 }

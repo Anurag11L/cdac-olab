@@ -381,6 +381,7 @@ body {
   }
   .spiral{
     width: 550px;
+    margin-left: 1rem;
   }
 }
 
@@ -541,4 +542,24 @@ body {
 .whole{
   display: flex;
   justify-content:center;
+}
+
+.theory{
+  display: flex;
+  justify-content: center;
+}
+
+.actualtheory{
+  margin-left: 1rem;
+}
+
+.instructions{
+  text-align:left;
+  margin-left: 7%;
+  border: 2px solid white;
+  margin-right: 7%;
+  border-radius: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }

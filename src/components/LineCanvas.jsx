@@ -10,7 +10,10 @@ const LineCanvas = () => {
   const [theta, setTheta] = useState(0);
   const [count, setCount] = useState(1);
   const [ert, setErt] = useState(0);
-  const [angleText, setAngleText] = useState('');
+  const [angleText, setAngleText] = useState(0);
+  const [rotation, setRotation] = useState(0);
+  // const [angle, setAngle] = useState(0);
+  const [textAngle, setTextAngle] = useState('');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,44 +26,58 @@ const LineCanvas = () => {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
-    ctx.beginPath();
-    ctx.moveTo(centerX + 50, centerY);
-    ctx.lineTo(centerX, centerY);
-    ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
-    ctx.lineTo(centerX + 50 * d, centerY - 50 * c);
-    ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
-    ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "#ff0000";
-    ctx.stroke();
-
-    const angleRadians = Math.atan2(y, x);
-    const angleDegrees = (angleRadians * 180) / Math.PI;
-    const newAngleText = `Angle: ${angleDegrees.toFixed(2)}°`;
-    ctx.font = '14px Arial';
-    ctx.fillStyle = 'white';
-    // ctx.fillText(newAngleText, 50, 20);
-
+    if (angle <= (angleText+5) && angle >= (angleText-5)) {
+      ctx.beginPath();
+      ctx.moveTo(centerX + 50, centerY);
+      ctx.lineTo(centerX, centerY);
+      ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
+      ctx.lineTo(centerX + 50 * d, centerY - 50 * c);
+      ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
+      ctx.lineTo(centerX, centerY);
+      ctx.strokeStyle = "#ff0000";
+      ctx.stroke();
     
-    // if (count === 1) {
-    //   setErt(Math.atan(1, Math.sqrt(2)));
-    // } else {
-    //   setErt(0);
-    // }
-    setB(Math.sqrt(1 + (b * b)));
-    setTheta(theta  + Math.atan(1/ b));
-    
-    setC(y);
-    setD(x);
-    setY(Math.sqrt(1 + b * b) * Math.sin(theta));
-    setX(Math.sqrt(1 + b * b) * Math.cos(theta));
-    // setCount(0);
-    setAngleText(newAngleText);
+
+      const angleRadians = Math.atan2(y, x);
+      const angleDegrees = (angleRadians * 180) / Math.PI;
+      const newAngleText = angleDegrees.toFixed(0);
+      ctx.font = '14px Arial';
+      ctx.fillStyle = 'white';
+      // setTextAngle(newAngleText);
+
+      setB(Math.sqrt(1 + b * b));
+      setTheta(theta + Math.atan(1 / b));
+      setC(y);
+      setD(x);
+      setY(Math.sqrt(1 + b * b) * Math.sin(theta));
+      setX(Math.sqrt(1 + b * b) * Math.cos(theta));
+      setAngleText(newAngleText);
+    }
   };
+
+  const handleRotate10Click = () => {
+    setRotation((prevRotation) => prevRotation - 10);
+    // setAngle((rotation * -1));
+  };
+
+  const handleRotate1Click = () => {
+    setRotation((prevRotation) => prevRotation - 1);
+    // setAngle((rotation * -1));
+  };
+
+  const angle = (-1 * rotation)%360;
 
   return (
     <div className='whole'>
       <canvas className="can" ref={canvasRef} width={300} height={300} />
       <button className='btn' onClick={handleCreateClick}>Create</button>
+
+      <div style={{ transform: `rotate(${rotation}deg)` }}>
+        <img src="./src/components/protractor1.png" className="protract" alt="Protractor" />
+      </div>
+
+      <button className='btn' onClick={handleRotate10Click}>Rotate 10°</button>
+      <button className='btn' onClick={handleRotate1Click}>Rotate 1°</button>
 
       <div className='right'>
         <p>(x, y) = ({x}, {y})</p>
@@ -68,10 +85,14 @@ const LineCanvas = () => {
         <p>(d, c) = ({d}, {c})</p>
         <p>count: {count}</p>
         <p>ert: {ert}</p>
-        <p>{angleText}</p>
-        <p>{theta}</p>
+        <p>hypo: {angleText}</p>
+        <p>theta: {theta}</p>
+        <div className='angle-display'>
+          <p>Protractor Angle: {angle}</p>
+        </div>
       </div>
 
+      
     </div>
   );
 };

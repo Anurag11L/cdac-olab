@@ -150,16 +150,19 @@ const Simulator = () => {
                                                 // }
                                               };
     
+                                            
         // Event handler for the button click
-        const traceClick1 = () => {
+        function traceClick1() {
           // if (Math.abs(theta - angle) <= 2){
             trace1();
           // }
-        };
+        }
 
         // const handleClick = () => {
         //   traceClick1();
         // };
+
+
         
     
         // Add event listener to the button
@@ -371,6 +374,17 @@ const Simulator = () => {
         <button className='btn' onClick={closeErrorModal}>Close</button>
       </Modal>
 
+      <div className='instructions'>
+        <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
+        Instructions
+        </p>
+        <p >Step 1: Check the angle of Protractor and the angle of hypotenuse.<br></br>    i. If both the angles are equal proceed with (Step 2)<br></br>    ii. If both he angles are not equal use the (Rotate 10) and (rotate 1) buttons to match the angles. </p>
+
+        <p >Step 2: Click on the "Trace" button to draw a triangle.</p>
+        <p>Step 3: Calculate the length of hypotenuse you have just constructed.</p>
+        <p>Step 4: Check whether the length of hypotenuse you have calculated and the graph value is equal or not.</p>
+        <p>Step 5: Repeat Step 1.</p>
+      </div>
     </>
   );
 };

@@ -29,7 +29,6 @@ const SelfEvaluation = () => {
         <div className='title'>
             -SELF-EVALUATION-
         </div>
-        <LineCanvas></LineCanvas>
     </>
   )
 }

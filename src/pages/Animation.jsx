@@ -32,6 +32,8 @@ const Animation = () => {
         </div>
         {/* <LineCanvas></LineCanvas> */}
         <SampleSimulator></SampleSimulator>
+
+        
     </>
   );
 };
