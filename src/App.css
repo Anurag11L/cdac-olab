@@ -563,3 +563,91 @@ body {
   padding-right: 1rem;
   padding-bottom: 1rem;
 }
+
+
+/* Quiz------------------------------------------------ */
+
+
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.quiz {
+  max-width: 1000px;
+  margin: 1rem auto;
+  background: #504747;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-section {
+  margin-bottom: 20px;
+}
+
+.question-count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.question-text {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* button:hover {
+  background: #63da69;
+} */
+
+button.selected {
+  background: rgb(0, 136, 169);
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background: #0f75bd;
+}
+
+.explanation {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #7a5de3;
+  border-radius: 4px;
+}
+
+.correct-answer {
+  font-weight: bold;
+}
+
+.explanation-text {
+  margin-top: 5px;
+}

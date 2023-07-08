@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LineCanvas from '../components/lineCanvas';
+import Quiz from './Quiz';
 
 const SelfEvaluation = () => {
     
@@ -29,6 +30,7 @@ const SelfEvaluation = () => {
         <div className='title'>
             -SELF-EVALUATION-
         </div>
+        <Quiz></Quiz>
     </>
   )
 }
