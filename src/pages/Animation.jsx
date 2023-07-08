@@ -31,7 +31,7 @@ const Animation = () => {
             -ANIMATION-
         </div>
         {/* <LineCanvas></LineCanvas> */}
-        <SampleSimulator></SampleSimulator>
+        {/* <SampleSimulator></SampleSimulator> */}
 
         
     </>

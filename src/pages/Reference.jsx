@@ -29,7 +29,7 @@ const Reference = () => {
         <div className='title'>
             -REFERENCE-
         </div>
-        <LineCanvas></LineCanvas>
+        {/* <LineCanvas></LineCanvas> */}
     </>
   )
 }

@@ -37,7 +37,7 @@ const SquareRootSpiral = () => {
 
         // Calculate the angle
     const angleRadians = Math.atan2(y, x);
-    const angleDegrees = (angleRadians * 180) / Math.PI;
+    const angleDegrees = ((angleRadians * 180) / Math.PI);
     setAngle(angleDegrees);
 
     
@@ -97,7 +97,7 @@ const SquareRootSpiral = () => {
         </div>
       </div>
         <p className='labels'></p>
-        {/* <div>Angle: {angle.toFixed(2)}°</div> */}
+        <div>Angle: {angle.toFixed(10)}°</div>
     </div>
     </>
   );
