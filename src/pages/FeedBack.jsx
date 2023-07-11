@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// import Circle from '../components/Circle1';
 
 const FeedBack = () => {
     
@@ -28,6 +29,7 @@ const FeedBack = () => {
         <div className='title'>
             -FEEDBACK-
         </div>
+        {/* <Circle></Circle> */}
     </>
   )
 }

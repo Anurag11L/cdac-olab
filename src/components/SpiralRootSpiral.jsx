@@ -97,7 +97,7 @@ const SquareRootSpiral = () => {
         </div>
       </div>
         <p className='labels'></p>
-        <div>Angle: {angle.toFixed(10)}°</div>
+        {/* <div>Angle: {angle.toFixed(10)}°</div> */}
     </div>
     </>
   );

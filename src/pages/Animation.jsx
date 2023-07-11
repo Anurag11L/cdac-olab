@@ -4,6 +4,8 @@ import LineCanvas from '../components/lineCanvas';
 import SampleSimulator from '../components/SampleSimulator';
 
 const Animation = () => {
+
+    
     
   return (
     <>
@@ -31,7 +33,8 @@ const Animation = () => {
             -ANIMATION-
         </div>
         {/* <LineCanvas></LineCanvas> */}
-        {/* <SampleSimulator></SampleSimulator> */}
+        <SampleSimulator></SampleSimulator>
+
 
         
     </>

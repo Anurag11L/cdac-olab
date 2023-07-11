@@ -16,6 +16,14 @@ const questions = [
     // image:'E:\cdac final project\quiz\quizz\src\diagram1.png'
 
   },
+  {
+    question: 'Every point on the number line is of the form √m, where m is a natural number.',
+    options: ['True', 'False'],
+    answer: 'False',
+    explanation: 'A number line contains both positive and negative numbers. Since, square root of negative number is not a real number, and negative numbers cannot be expressed as the square root of a natural number(m), not every point on the number line can be represented in the form √m where m is a natural number.',
+    // image:'E:\cdac final project\quiz\quizz\src\diagram1.png'
+
+  },
   // Add more questions...
 ];
 

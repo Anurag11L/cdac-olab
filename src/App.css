@@ -195,10 +195,44 @@ body {
   height: 90vh;
   width: 30vw;
   padding: 1%;
-  margin: 1%;
+  /* margin: 1%; */
   background-color: rgb(0, 136, 169);
   border-radius: 20px;
   
+}
+
+
+.btn {
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: 2px solid black;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 2px 2px 4px #ffffff;
+  
+}
+
+.btn::before {
+  content: '';
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #c0e6ef 0%, #2773ec 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 9em;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -211,12 +245,14 @@ body {
     flex-wrap: wrap;
   }
   .square {
-    height: 220px;
-    width: 220px;
+    height: 280px;
+    width: 280px;
   }
   .rec {
     height: 550px;
-    width: 220px;
+    width: 280px;
+    /* margin-left: 7%; */
+    margin-right: 10%;
   }
 
   .protract{
@@ -233,6 +269,41 @@ body {
   .spiral{
     width: 220px;
   }
+
+  
+.btn {
+  width: 9em;
+  height: 2.8em;
+  border-radius: 30em;
+  font-size: 13px;
+  font-family: inherit;
+  border: 2px solid black;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 2px 2px 4px #ffffff;
+  
+}
+
+.btn::before {
+  content: '';
+  width: 0;
+  height: 2.8em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #c0e6ef 0%, #2773ec 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 9em;
+}
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -440,38 +511,6 @@ body {
   }
 }
 
-.btn {
-  width: 9em;
-  height: 3em;
-  border-radius: 30em;
-  font-size: 15px;
-  font-family: inherit;
-  border: 2px solid black;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  z-index: 1;
-  box-shadow: 2px 2px 4px #ffffff;
-  
-}
-
-.btn::before {
-  content: '';
-  width: 0;
-  height: 3em;
-  border-radius: 30em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(to right, #c0e6ef 0%, #2773ec 100%);
-  transition: .5s ease;
-  display: block;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  width: 9em;
-}
 
 .labels {
   /* font-size: medium; */
@@ -506,6 +545,12 @@ body {
 .bind{
   display: flex;
   justify-content: space-evenly;
+}
+
+.bindnew{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
@@ -556,8 +601,8 @@ body {
 .instructions{
   text-align:left;
   margin-left: 7%;
-  border: 2px solid white;
   margin-right: 7%;
+  border: 2px solid white;
   border-radius: 20px;
   padding-left: 1rem;
   padding-right: 1rem;

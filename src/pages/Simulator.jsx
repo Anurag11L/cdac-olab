@@ -50,7 +50,7 @@ const Simulator = () => {
     context.strokeStyle = 'green';
   
     // Draw scales along the x-axis
-    const scaleIntervalX = 50; // Interval between scales
+    const scaleIntervalX = 60; // Interval between scales
     const startX = scaleIntervalX;
     const endX = width - scaleIntervalX;
     for (let x = startX; x <= endX; x += scaleIntervalX) {
@@ -61,7 +61,7 @@ const Simulator = () => {
     }
   
     // Draw scales along the y-axis
-    const scaleIntervalY = 50; // Interval between scales
+    const scaleIntervalY = 60; // Interval between scales
     const startY = scaleIntervalY;
     const endY = height - scaleIntervalY;
     for (let y = startY; y <= endY; y += scaleIntervalY) {
@@ -74,7 +74,7 @@ const Simulator = () => {
     // Set the color of the center scales to black
     context.strokeStyle = 'black';
     context.fillStyle = 'black';
-    context.font = '15px Arial';
+    context.font = '17px Arial';
   
     // Draw the center scales
     const centerX = width / 2;
@@ -93,14 +93,20 @@ const Simulator = () => {
     context.fillText('Y', centerX - labelOffset, centerY - centerScaleLength - labelOffset);
   
     // Number the x-axis
-    const xAxisNumberOffset = 14; 
+    const xAxisNumberOffset = 20; 
     const xAxisNumberStart = scaleIntervalX; 
     const xAxisNumberEnd = (width - scaleIntervalX) / 2;
-    const xAxisNumberInterval = 50; 
+    const xAxisNumberInterval = 60; 
     for (let x = xAxisNumberStart; x <= xAxisNumberEnd; x += xAxisNumberInterval) {
         context.fillText((x / scaleIntervalX).toString(), centerX + x - xAxisNumberOffset, centerY + xAxisNumberOffset);
     }
     context.lineWidth = 2;
+
+    context.beginPath();
+    context.moveTo(centerX + 60, centerY);
+    context.lineTo(centerX, centerY);
+    context.strokeStyle = "#ff0000";
+    context.stroke();
 
 }, []);
 
@@ -111,19 +117,21 @@ const handleCreateClick = () => {
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
 
+  
+
   // Iteration 1----------------------------------------------
     if(count === 1){
       if(angle ===0){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
-        ctx.lineTo(centerX + 50 * d, centerY - 50 * c);
-        ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(2);
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * x, centerY - 60 * y);
+          ctx.lineTo(centerX + 60 * d, centerY - 60 * c);
+          ctx.moveTo(centerX + 60 * x, centerY - 60 * y);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(2);
       }
     }
 
@@ -151,11 +159,11 @@ const handleCreateClick = () => {
     if(count === 2){
       if(angle === hypo ){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx, centerY - 50 * yy);
-        ctx.lineTo(centerX + 50 * dd, centerY - 50 * cc);
-        ctx.moveTo(centerX + 50 * xx, centerY - 50 * yy);
+        ctx.moveTo(centerX + 60 * xx, centerY - 60 * yy);
+        ctx.lineTo(centerX + 60 * dd, centerY - 60 * cc);
+        ctx.moveTo(centerX + 60 * xx, centerY - 60 * yy);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -186,11 +194,11 @@ const handleCreateClick = () => {
     if(count === 3){
       if(angle <= (totalAngle + 2) && angle >=(totalAngle - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx1, centerY - 50 * yy1);
-        ctx.lineTo(centerX + 50 * dd1, centerY - 50 * cc1);
-        ctx.moveTo(centerX + 50 * xx1, centerY - 50 * yy1);
+        ctx.moveTo(centerX + 60 * xx1, centerY - 60 * yy1);
+        ctx.lineTo(centerX + 60 * dd1, centerY - 60 * cc1);
+        ctx.moveTo(centerX + 60 * xx1, centerY - 60 * yy1);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -221,11 +229,11 @@ const handleCreateClick = () => {
     if(count === 4){
       if(angle <= (hypo2 + 2) && angle >=(hypo2 - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx2, centerY - 50 * yy2);
-        ctx.lineTo(centerX + 50 * dd2, centerY - 50 * cc2);
-        ctx.moveTo(centerX + 50 * xx2, centerY - 50 * yy2);
+        ctx.moveTo(centerX + 60 * xx2, centerY - 60 * yy2);
+        ctx.lineTo(centerX + 60 * dd2, centerY - 60 * cc2);
+        ctx.moveTo(centerX + 60 * xx2, centerY - 60 * yy2);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -256,11 +264,11 @@ const handleCreateClick = () => {
     if(count === 5){
       if(angle <= (hypo3 + 2) && angle >=(hypo3 - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx3, centerY - 50 * yy3);
-        ctx.lineTo(centerX + 50 * dd3, centerY - 50 * cc3);
-        ctx.moveTo(centerX + 50 * xx3, centerY - 50 * yy3);
+        ctx.moveTo(centerX + 60 * xx3, centerY - 60 * yy3);
+        ctx.lineTo(centerX + 60 * dd3, centerY - 60 * cc3);
+        ctx.moveTo(centerX + 60 * xx3, centerY - 60 * yy3);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -291,11 +299,11 @@ const handleCreateClick = () => {
     if(count === 6){
       if(angle <= (hypo4 + 2) && angle >=(hypo4 - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx4, centerY - 50 * yy4);
-        ctx.lineTo(centerX + 50 * dd4, centerY - 50 * cc4);
-        ctx.moveTo(centerX + 50 * xx4, centerY - 50 * yy4);
+        ctx.moveTo(centerX + 60 * xx4, centerY - 60 * yy4);
+        ctx.lineTo(centerX + 60 * dd4, centerY - 60 * cc4);
+        ctx.moveTo(centerX + 60 * xx4, centerY - 60 * yy4);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -327,11 +335,11 @@ const handleCreateClick = () => {
     if(count === 7){
       if(angle <= (hypo5 + 2) && angle >=(hypo5 - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx5, centerY - 50 * yy5);
-        ctx.lineTo(centerX + 50 * dd5, centerY - 50 * cc5);
-        ctx.moveTo(centerX + 50 * xx5, centerY - 50 * yy5);
+        ctx.moveTo(centerX + 60 * xx5, centerY - 60 * yy5);
+        ctx.lineTo(centerX + 60 * dd5, centerY - 60 * cc5);
+        ctx.moveTo(centerX + 60 * xx5, centerY - 60 * yy5);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -362,11 +370,11 @@ const handleCreateClick = () => {
     if(count === 8){
       if(angle <= (hypo6 + 2) && angle >=(hypo6 - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx6, centerY - 50 * yy6);
-        ctx.lineTo(centerX + 50 * dd6, centerY - 50 * cc6);
-        ctx.moveTo(centerX + 50 * xx6, centerY - 50 * yy6);
+        ctx.moveTo(centerX + 60 * xx6, centerY - 60 * yy6);
+        ctx.lineTo(centerX + 60 * dd6, centerY - 60 * cc6);
+        ctx.moveTo(centerX + 60 * xx6, centerY - 60 * yy6);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -397,11 +405,11 @@ const handleCreateClick = () => {
     if(count === 9){
       if(angle <= (hypo7 + 2) && angle >=(hypo7 - 2)){
         ctx.beginPath();
-        ctx.moveTo(centerX + 50, centerY);
+        ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 50 * xx7, centerY - 50 * yy7);
-        ctx.lineTo(centerX + 50 * dd7, centerY - 50 * cc7);
-        ctx.moveTo(centerX + 50 * xx7, centerY - 50 * yy7);
+        ctx.moveTo(centerX + 60 * xx7, centerY - 60 * yy7);
+        ctx.lineTo(centerX + 60 * dd7, centerY - 60 * cc7);
+        ctx.moveTo(centerX + 60 * xx7, centerY - 60 * yy7);
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
@@ -410,6 +418,239 @@ const handleCreateClick = () => {
     }
 
 };
+
+
+const handleCircle = () => {
+
+  const canvas = canvasRef1.current;
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width;
+  const height = canvas.height;
+  const centerX = width / 2;
+  const centerY = height / 2;
+
+  if(count === 1){
+      
+      const radius = 60;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#0000ff";
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.moveTo(centerX +75, centerY );
+      ctx.lineTo(centerX, centerY);
+      ctx.strokeStyle = "ff0000";
+      ctx.stroke();
+      ctx.closePath();
+
+      // Draw text for line length above the line
+      ctx.font = '20px Arial';
+      ctx.fillStyle = "ff0000";
+      ctx.fillText(`${Math.sqrt(1).toFixed(1)}`, (centerX +330) / 2, (centerY +290)/2);
+
+  }
+
+  if(count === 2){
+      
+      const radius = 60 * Math.sqrt(2);
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#0000ff";
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.moveTo(centerX +(60 * Math.sqrt(2)), centerY );
+      ctx.lineTo(centerX, centerY);
+      ctx.strokeStyle = "ff0000";
+      ctx.stroke();
+      ctx.closePath();
+
+      // Draw text for line length above the line
+      ctx.font = '20px Arial';
+      ctx.fillStyle = "ff0000";
+      ctx.fillText(`${Math.sqrt(2).toFixed(1)}`, (centerX +340) / 2, (centerY +290)/2);
+  }
+
+  if(count === 3){
+      
+      const radius = 60 * Math.sqrt(3);
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      ctx.strokeStyle = "#0000ff";
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.moveTo(centerX +(60 * Math.sqrt(3)), centerY );
+      ctx.lineTo(centerX, centerY);
+      ctx.strokeStyle = "ff0000";
+      ctx.stroke();
+      ctx.closePath();
+
+      // Draw text for line length above the line
+      ctx.font = '20px Arial';
+      ctx.fillStyle = "00ff00";
+      ctx.fillText(`${Math.sqrt(3).toFixed(1)}`, (centerX +350) / 2, (centerY +290)/2);
+  }
+
+  if(count === 4){
+      
+    const radius = 60 * Math.sqrt(4);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(4)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
+
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(4).toFixed(1)}`, (centerX +390) / 2, (centerY +290)/2);
+}
+
+if(count === 5){
+      
+  const radius = 60 * Math.sqrt(5);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#0000ff";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.moveTo(centerX +(60 * Math.sqrt(5)), centerY );
+  ctx.lineTo(centerX, centerY);
+  ctx.strokeStyle = "ff0000";
+  ctx.stroke();
+  ctx.closePath();
+
+  // Draw text for line length above the line
+  ctx.font = '20px Arial';
+  ctx.fillStyle = "0000ff";
+  ctx.fillText(`${Math.sqrt(5).toFixed(1)}`, (centerX +400) / 2, (centerY +290)/2);
+}
+
+if(count === 6){
+      
+  const radius = 60 * Math.sqrt(6);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#0000ff";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.moveTo(centerX +(60 * Math.sqrt(6)), centerY );
+  ctx.lineTo(centerX, centerY);
+  ctx.strokeStyle = "ff0000";
+  ctx.stroke();
+  ctx.closePath();
+
+  // Draw text for line length above the line
+  ctx.font = '20px Arial';
+  ctx.fillStyle = "0000ff";
+  ctx.fillText(`${Math.sqrt(6).toFixed(1)}`, (centerX +420) / 2, (centerY +290)/2);
+}
+
+if(count === 7){
+      
+  const radius = 60 * Math.sqrt(7);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#0000ff";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.moveTo(centerX +(60 * Math.sqrt(7)), centerY );
+  ctx.lineTo(centerX, centerY);
+  ctx.strokeStyle = "ff0000";
+  ctx.stroke();
+  ctx.closePath();
+
+  // Draw text for line length above the line
+  ctx.font = '20px Arial';
+  ctx.fillStyle = "0000ff";
+  ctx.fillText(`${Math.sqrt(7).toFixed(1)}`, (centerX +450) / 2, (centerY +290)/2);
+}
+
+if(count === 8){
+      
+  const radius = 60 * Math.sqrt(8);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#0000ff";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.moveTo(centerX +(60 * Math.sqrt(8)), centerY );
+  ctx.lineTo(centerX, centerY);
+  ctx.strokeStyle = "ff0000";
+  ctx.stroke();
+  ctx.closePath();
+
+  // Draw text for line length above the line
+  ctx.font = '20px Arial';
+  ctx.fillStyle = "0000ff";
+  ctx.fillText(`${Math.sqrt(8).toFixed(1)}`, (centerX +470) / 2, (centerY +290)/2);
+}
+
+if(count === 9){
+      
+  const radius = 60 * Math.sqrt(9);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#0000ff";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.moveTo(centerX +(60 * Math.sqrt(9)), centerY );
+  ctx.lineTo(centerX, centerY);
+  ctx.strokeStyle = "ff0000";
+  ctx.stroke();
+  ctx.closePath();
+
+  // Draw text for line length above the line
+  ctx.font = '20px Arial';
+  ctx.fillStyle = "0000ff";
+  ctx.fillText(`${Math.sqrt(9).toFixed(1)}`, (centerX +510) / 2, (centerY +290)/2);
+}
+
+if(count === 10){
+      
+  const radius = 60 * Math.sqrt(10);
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = "#0000ff";
+  ctx.stroke();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.moveTo(centerX +(60 * Math.sqrt(10)), centerY );
+  ctx.lineTo(centerX, centerY);
+  ctx.strokeStyle = "ff0000";
+  ctx.stroke();
+  ctx.closePath();
+
+  // Draw text for line length above the line
+  ctx.font = '20px Arial';
+  ctx.fillStyle = "0000ff";
+  ctx.fillText(`${Math.sqrt(10).toFixed(1)}`, (centerX +540) / 2, (centerY +290)/2);
+}
+
+}
 
 // Canvas-----------------------------------------------------------------//
 
@@ -421,8 +662,8 @@ const handleCreateClick = () => {
         //-------------------------//---------------------//--------------------//-------------
         const handleClick = (event) => {
             const inputB = parseInt(event.target.value);
-            if (inputB === 1 || inputB > 0) {
-              const c = Math.sqrt(inputB);
+            if (inputB >=3 && inputB <= 9) {
+              const c = inputB;
               setData(c);
               setPrint(false);
               setShowNextInstruction(false);
@@ -528,30 +769,41 @@ const handleCreateClick = () => {
             {/* Rectangle-----------------------------------------------------------------------------------------------------------*/}
             <div>
                     <div className='rec'>
-                    <div className='labels'> Try calculating the hypotenious you found.</div>
+                    <br></br>
+                    {/* <div className='labels'> Try calculating the hypotenious you found.</div> */}
                     
-                        <div className='labels'><div className='labels'>Considering side <i>a</i> to be always 1.</div></div>
+                        {/* <div className='labels'><div className='labels'>Considering side <i>a</i> to be always 1.</div></div> */}
+                        <div className='labels'><div className='labels'>Till which Square Root value do you want to draw?</div></div>
 
-                        {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)}
+                        {/* {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)} */}
+                        <br></br>
+                        {/* <div className='bindnew'> */}
+                        {showErrorModal ?null :(<div className='labels'><input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)}
+
+                        {showErrorModal ?null :(<div className='labels'><button className='btn' onClick={() => setPrint(true)}>Enter</button></div>)}
+                        {/* </div> */}
+                        {/* <div ><div className='labels'>Hypoteneous length ( c ) : <br></br>( {print ? <>{data}</> : null} )</div></div> */}
 
                         <br></br>
+                        {/* <br></br> */}
 
-                        {showErrorModal ?null :(<button className='btn' onClick={() => setPrint(true)}>Calculate</button>)}
+                        <div ><div className='labels'> Controls :</div></div>
 
-                        <div ><div className='labels'>Hypoteneous length ( c ) : <br></br>( {print ? <>{data}</> : null} )</div></div>
+                        {/* <img src='./src/components/diagram1.png' className='diagram'></img><br></br> */}
 
-                        <img src='./src/components/diagram1.png' className='diagram'></img><br></br>
-
-                        <div className='bind'>
+                        <div className='bindnew'>
                             {showErrorModal ?null :(<button className='btn' onClick={rotateByTenDegrees}>Rotate by 10°</button>)}
                             {showErrorModal ?null :(<button className='btn' onClick={rotateByOneDegrees}>Rotate by 1°</button>)}
+                            <div className='bindnew'>
                             {showErrorModal ?null :(<button className='btn' onClick={handleCreateClick}>Trace</button>)}
+                            {showErrorModal ?null :(<button className='btn' onClick={handleCircle}>Circle</button>)}
+                            </div>
                         </div>
 
                         <br></br>
                         {showNextInstruction && renderInstruction()}
 
-                        <p className='labels'>Protrator is rotated by angle: {angle}°</p>
+                        {/* <p className='labels'>Protrator is rotated by angle: {angle}°</p> */}
                     
                     </div>
                 </div>
@@ -568,22 +820,29 @@ const handleCreateClick = () => {
         style={modalStyles}
       >
         <h2 className="error-message">Error</h2>
-        <p className="error-message">Inapropriate input.</p>
-        <p className="error-message">Root of numbers less than 0 is out of syllabus.</p>
+        {/* <p className="error-message"></p> */}
+        <p className="error-message">Enter a number between 3 and 9.</p>
         <button className='btn' onClick={closeErrorModal}>Close</button>
       </Modal>
 
       <div className='instructions'>
-        <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
-        Instructions
-        </p>
-        <p >Step 1: Check the angle of Protractor and the angle of hypotenuse.<br></br>    i. If both the angles are equal proceed with (Step 2)<br></br>    ii. If both he angles are not equal use the (Rotate 10) and (rotate 1) buttons to match the angles. </p>
+      {/* <div className='bind'>  */}
+        <div>
+            <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
+            Instructions
+            </p>
+            <p >Step 1: Check the angle of Protractor and the angle of hypotenuse.<br></br>    i. If both the angles are equal proceed with (Step 2)<br></br>    ii. If both he angles are not equal use the (Rotate 10) and (rotate 1) buttons to match the angles. </p>
 
-        <p >Step 2: Click on the "Trace" button to draw a triangle.</p>
-        <p>Step 3: Calculate the length of hypotenuse you have just constructed.</p>
-        <p>Step 4: Check whether the length of hypotenuse you have calculated and the graph value is equal or not.</p>
-        <p>Step 5: Repeat Step 1.</p>
-      </div>
+            <p >Step 2: Click on the "Trace" button to draw a triangle.</p>
+            <p>Step 3: Calculate the length of hypotenuse you have just constructed.</p>
+            <p>Step 4: Check whether the length of hypotenuse you have calculated and the graph value is equal or not.</p>
+            <p>Step 5: Repeat Step 1.</p>
+          </div>
+          <div>
+            <img src='./src/components/diagram1.png' className='diagram'></img><br></br>
+          </div>
+        </div>
+      {/* </div> */}
     </>
   );
 };
