@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 // import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import SquareRootSpiral from '../components/SpiralRootSpiral';
@@ -8,7 +8,7 @@ const Theory = () => {
     
   return (
     <>
-        {/* <Header></Header> */}
+    <br></br>
         <header>
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>
@@ -42,12 +42,12 @@ const Theory = () => {
             <img src='./src/components/spiral.png' className='spiral'></img>
         </div>
         <div>
-            <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
+            <p style={{ fontSize: '5vh', fontWeight: 'bold' }}>
                 History and Uses
             </p>
             <div>Although all of Theodorus' work has been lost, Plato put Theodorus into his dialogue Theaetetus, which tells of his work. It is assumed that Theodorus had proved that all of the square roots of non-square integers from 3 to 17 are irrational by means of the Spiral of Theodorus.
 
-Plato does not attribute the irrationality of the square root of 2 to Theodorus, because it was well known before him. Theodorus and Theaetetus split the rational numbers and irrational numbers into different categories.</div>
+            Plato does not attribute the irrationality of the square root of 2 to Theodorus, because it was well known before him. Theodorus and Theaetetus split the rational numbers and irrational numbers into different categories.</div>
         </div>
         <br></br>
         <br></br>

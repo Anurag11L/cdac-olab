@@ -106,6 +106,8 @@ function Quiz() {
     </div>
     <br></br>
     <br></br>
+
+    
     </>
   );
 }

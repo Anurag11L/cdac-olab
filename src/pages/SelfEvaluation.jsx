@@ -7,6 +7,7 @@ const SelfEvaluation = () => {
     
   return (
     <>
+    <br></br>
     <header>
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>

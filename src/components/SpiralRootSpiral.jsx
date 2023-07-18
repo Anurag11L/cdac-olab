@@ -76,13 +76,13 @@ const SquareRootSpiral = () => {
   return (
     <>
     <div>
+    <br></br>
       <div className='theory'>
-        <canvas ref={canvasRef} width={500} height={500} className='canva' />
-        <div className='actualtheory'>
+      <div className='actualtheory'>
         <br></br>
 
-        <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
-                Fun Activity
+        <p style={{ fontSize: '5.5vh', fontWeight: 'bold' }}>
+                Fun Activity!!!
             </p>
           <div>First lets explore "What is Square Root Spiral?"</div>
           <br></br>
@@ -94,7 +94,11 @@ const SquareRootSpiral = () => {
           <div>The structure you have drawn is how the Square <br></br>Root Spiral actually look like.</div>
           <br></br>
           <div>In the coming lessons we will understand the <br></br>structure and its construction in detail.</div>
+          <br></br>
         </div>
+        {/* <br></br> */}
+        <canvas ref={canvasRef} width={500} height={500} className='canva' />
+        
       </div>
         <p className='labels'></p>
         {/* <div>Angle: {angle.toFixed(10)}°</div> */}

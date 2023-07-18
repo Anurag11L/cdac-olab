@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// import DraggableElement from '../components/DraggableElement';
+import DraggableDiv from '../components/DraggableElement';
 // import Circle from '../components/Circle1';
 
 const FeedBack = () => {
     
   return (
     <>
+    <br></br>
     <header>
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>
@@ -30,6 +33,7 @@ const FeedBack = () => {
             -FEEDBACK-
         </div>
         {/* <Circle></Circle> */}
+        <DraggableDiv></DraggableDiv>
     </>
   )
 }

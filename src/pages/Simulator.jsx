@@ -18,6 +18,7 @@ const Simulator = () => {
   const [y, setY] = useState(1);
   const [d, setD] = useState(1);
   const [c, setC] = useState(0);
+  const [digit, setDigit] = useState(0);
 
   const [angleText, setAngleText] = useState(0);
 // Canvas-----------------------------------------------------------------//
@@ -116,8 +117,6 @@ const handleCreateClick = () => {
   const ctx = canvas.getContext('2d');
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
-
-  
 
   // Iteration 1----------------------------------------------
     if(count === 1){
@@ -439,7 +438,7 @@ const handleCircle = () => {
       ctx.closePath();
 
       ctx.beginPath();
-      ctx.moveTo(centerX +75, centerY );
+      ctx.moveTo(centerX +60, centerY );
       ctx.lineTo(centerX, centerY);
       ctx.strokeStyle = "ff0000";
       ctx.stroke();
@@ -474,7 +473,7 @@ const handleCircle = () => {
       ctx.fillText(`${Math.sqrt(2).toFixed(1)}`, (centerX +340) / 2, (centerY +290)/2);
   }
 
-  if(count === 3){
+  if(count === 3 ){
       
       const radius = 60 * Math.sqrt(3);
       ctx.beginPath();
@@ -496,7 +495,7 @@ const handleCircle = () => {
       ctx.fillText(`${Math.sqrt(3).toFixed(1)}`, (centerX +350) / 2, (centerY +290)/2);
   }
 
-  if(count === 4){
+  if(count === 4 ){
       
     const radius = 60 * Math.sqrt(4);
     ctx.beginPath();
@@ -661,44 +660,48 @@ if(count === 10){
 
         //-------------------------//---------------------//--------------------//-------------
         const handleClick = (event) => {
-            const inputB = parseInt(event.target.value);
-            if (inputB >=3 && inputB <= 9) {
-              const c = inputB;
-              setData(c);
-              setPrint(false);
-              setShowNextInstruction(false);
-            } else if (event.target.value.trim() !== "") {
-              setShowErrorModal(true);
-              event.target.value = ""; // Clear the input field
-            }
+          const inputB = parseInt(event.target.value);
+          if(inputB >= 3 && inputB <= 9) {
+            const m = inputB;
+            setData(m);
+            setDigit(m);
+            setPrint(false);
+            setShowNextInstruction(false);
+          }else if (event.target.value.trim() !== "") {
+            setShowErrorModal(true);
+            event.target.value = ""; // Clear the input field
+          }
           };
+
+          // const m1 = m;
 
         // Error Modal Styles
         const modalStyles = {
-            overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Transparent background
-            },
-            content: {
-            backgroundColor: "transparent", // Transparent background
-            border: "none", // No border
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            color: "#000000", // Black text color
-            },
+          overlay: {
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // Transparent background
+          },
+          content: {
+          backgroundColor: "transparent", // Transparent background
+          border: "none", // No border
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          color: "#000000", // Black text color
+          },
         };
   
         const closeErrorModal = () => {
-            setShowErrorModal(false);
-          };
+          setShowErrorModal(false);
+        };
 
 //Rectangle-------------------------------------------------------------//
   
     
   return (
     <>
+    <br></br>
 {/* Header--------------------------------------------------------------------------------------------------------------------------*/}
 {/* Header--------------------------------------------------------------------------------------------------------------------------*/}
         <header>
@@ -777,12 +780,14 @@ if(count === 10){
 
                         {/* {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)} */}
                         <br></br>
-                        {/* <div className='bindnew'> */}
+                        <div className='bindnew'>
                         {showErrorModal ?null :(<div className='labels'><input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)}
 
                         {showErrorModal ?null :(<div className='labels'><button className='btn' onClick={() => setPrint(true)}>Enter</button></div>)}
-                        {/* </div> */}
-                        {/* <div ><div className='labels'>Hypoteneous length ( c ) : <br></br>( {print ? <>{data}</> : null} )</div></div> */}
+                        </div>
+                        {/* <div ><div className='labels'><br></br>( {print ? <>{data}</> : null} )</div></div> */}
+                        {/* <div ><div className='labels'><br></br>( {print ? <>{m1}</> : null} )</div></div> */}
+
 
                         <br></br>
                         {/* <br></br> */}
@@ -803,6 +808,17 @@ if(count === 10){
                         <br></br>
                         {showNextInstruction && renderInstruction()}
 
+                        <div className='rec-instructions'>
+                        <div>Instructions :</div>
+                        <div>Step 1: Enter a number between 3 and 9 of your choice in the input bar given above and PRESS 'Enter'.</div>
+                        <br></br>
+                        <div>Step 2: Place the protractor on the vertex and adjust the angle of the protractor with respect to the hypotenuse, then PRESS 'Trace'. </div>
+                        <br></br>
+                        <div>Step 3: Repeat Step 2 until you have reached the desired square root.</div>
+                        <br></br>
+                        <div>Step 4: Construct a circle and record the length of the square root spiral. </div>
+
+                        </div>
                         {/* <p className='labels'>Protrator is rotated by angle: {angle}°</p> */}
                     
                     </div>
@@ -825,24 +841,25 @@ if(count === 10){
         <button className='btn' onClick={closeErrorModal}>Close</button>
       </Modal>
 
-      <div className='instructions'>
+      {/* <div className='instructions'> */}
       {/* <div className='bind'>  */}
-        <div>
+        {/* <div>
             <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
             Instructions
             </p>
-            <p >Step 1: Check the angle of Protractor and the angle of hypotenuse.<br></br>    i. If both the angles are equal proceed with (Step 2)<br></br>    ii. If both he angles are not equal use the (Rotate 10) and (rotate 1) buttons to match the angles. </p>
+            <p >Step 1: Check the angle of Protractor and the angle of hypotenuse.<br></br>    i. If both the angles are equal proceed with (Step 2)<br></br>    ii. If both he angles are not equal use the (Rotate 10) <br></br>and (rotate 1) buttons to match the angles. </p>
 
             <p >Step 2: Click on the "Trace" button to draw a triangle.</p>
             <p>Step 3: Calculate the length of hypotenuse you have just constructed.</p>
-            <p>Step 4: Check whether the length of hypotenuse you have calculated and the graph value is equal or not.</p>
+            <p>Step 4: Check whether the length of hypotenuse you have calculated<br></br> and the graph value is equal or not.</p>
             <p>Step 5: Repeat Step 1.</p>
-          </div>
-          <div>
-            <img src='./src/components/diagram1.png' className='diagram'></img><br></br>
-          </div>
-        </div>
+          </div> */}
+          {/* <div> */}
+            {/* <img src='./src/components/diagram1.png' className='diagram'></img> */}
+          {/* </div> */}
+        {/* </div> */}
       {/* </div> */}
+      <br></br>
     </>
   );
 };

@@ -1,17 +1,11 @@
 import React, { useRef, useEffect,useState } from 'react';
-// import { NavLink } from 'react-router-dom';
 import Draggable from 'react-draggable';
-// import Modal from 'react-modal';
-
-
 
 const Simulator = () => {
-    const [rotation, setRotation] = useState(0);
+    const [rotation] = useState(0);
     const canvasRef1 = useRef(null);
     const protractorRef = useRef(null);
-    const [centerBottomCoordinates, setCenterBottomCoordinates] = useState({ x: 0, y: 0 });
-
-   
+    const draggableRef = useRef(null);
 
     useEffect(() => {
         const canvas = canvasRef1.current;
@@ -20,7 +14,9 @@ const Simulator = () => {
         const height = canvas.height;
 
         // console.log(square.getBoundingClientRect().left, square.getBoundingClientRect().top);
-        
+        const xCanvas = square.getBoundingClientRect().left;
+        const yCanvas = square.getBoundingClientRect().top;
+        console.log(xCanvas, yCanvas);
       
         // Clear the canvas
         context.clearRect(0, 0, width, height);
@@ -81,35 +77,27 @@ const Simulator = () => {
         }
         context.lineWidth = 2;
 
+
+        if (protractorRef.current) {
+          const dimensions = protractorRef.current.getBoundingClientRect();
+          console.log('Protractor dimensions:', dimensions);
+
+          
+        }
+
+        // Calculate the initial position of the draggable element
+    const draggableWidth = 250; // Width of the draggable element
+    const draggableHeight = 200; // Height of the draggable element
+    // const draggableX = width / 2 - draggableWidth / 2; // X position to center the draggable element
+    // const draggableY = height / 2 - draggableHeight / 2; // Y position to center the draggable element
+    const draggableX = width / 2 - centerX;
+    const draggableY = height / 2 - centerY;
+
+    // Set the initial position of the draggable element
+    draggableRef.current.style.left = `${draggableX}px`;
+    draggableRef.current.style.top = `${draggableY}px`;
+
     }, []);
-    
-    const handleDrag = (event) => {
-
-      const canvas = canvasRef1.current;
-      const context = canvas.getContext('2d');
-      const width = canvas.width;
-      const height = canvas.height;
-      const centerX = width /2;
-      const centerY = height /2;
-
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-      setCenterBottomCoordinates({ x: mouseX, y: mouseY });
-      const canvasLeftX = square.getBoundingClientRect().left;
-      const canvasLeftY = square.getBoundingClientRect().top;
-      const centerOfCanvasX = square.getBoundingClientRect().left + centerX;
-      const centerOfCanvasY = square.getBoundingClientRect().top + centerY;
-
-      context.beginPath();
-      context.moveTo(centerOfCanvasX,centerOfCanvasY);
-      context.lineTo(centerX,centerY);
-      context.stroke();
-
-      // context.closePath();
-
-      
-      // Use the mouseX and mouseY values as needed
-    };
     
 
     return (
@@ -118,8 +106,8 @@ const Simulator = () => {
           <div className="canvas-container">
             <canvas ref={canvasRef1} className="square" id="square" width={600} height={600}></canvas>
             <div className="draggable-container">
-              <Draggable bounds=".square" axis="both" handle=".drag-handle" onDrag={handleDrag}>
-                <div className="drag-element">
+              <Draggable bounds=".square" axis="both" handle=".drag-handle" >
+                <div className="drag-element" ref={draggableRef}>
                   <img
                     src="./src/components/protractor1.png"
                     alt="protractor"
@@ -128,8 +116,6 @@ const Simulator = () => {
                     style={{
                       transform: `rotate(${rotation}deg)`,
                       transformOrigin: 'center bottom',
-                      left: `${centerBottomCoordinates.x}px`,
-                      top: `${centerBottomCoordinates.y}px`,
                     }}
                     ref={protractorRef}
                   />
@@ -137,11 +123,6 @@ const Simulator = () => {
                 </div>
               </Draggable>
             </div>
-          </div>
-          <div className="coordinates-container">
-            <p>Center Bottom Coordinates:</p>
-            <p>X: {centerBottomCoordinates.x.toFixed(2)}</p>
-            <p>Y: {centerBottomCoordinates.y.toFixed(2)}</p>
           </div>
         </div>
       </>
