@@ -770,7 +770,7 @@ if(count === 10){
         {/* <div className='title'>
             -SIMULATOR-
         </div> */}
-        <div style={{ color:'black',font: 'bolder'}}>Objective: Construction of the Square Root Spiral.</div>
+        <div style={{ color:'black',fontWeight: 'bold',}}>Objective: Construction of the Square Root Spiral.</div>
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 

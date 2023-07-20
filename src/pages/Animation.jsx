@@ -31,7 +31,7 @@ const Animation = () => {
             </div>
         </header>
         
-        <iframe style={{width:"50%" ,height:"25rem"}} src="https://www.youtube.com/embed/7WKbDyWbxGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe style={{width:"80%" ,height:"30rem"}} src="https://www.youtube.com/embed/7WKbDyWbxGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
         

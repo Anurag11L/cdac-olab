@@ -32,7 +32,7 @@ const SquareRootSpiral = () => {
       ctx.moveTo(centerX + 50 * x, centerY - 50 * y);
       ctx.lineTo(centerX, centerY);
 
-      ctx.strokeStyle = "#ffffff";
+      ctx.strokeStyle = "#99ffff"; 
       ctx.stroke();
 
         // Calculate the angle
@@ -78,7 +78,7 @@ const SquareRootSpiral = () => {
     <div>
     <br></br>
       <div className='theory'>
-      <div className='actualtheory' style={{background:'white',padding:'2%',border:'2px solid darkblue'}}>
+      <div className='actualtheory' style={{background:'white',padding:'2%',margin:'3%',border:'2px solid darkblue'}}>
         <br></br>
 
         <p style={{ fontSize: '5.5vh', fontWeight: 'bold' ,color:'black' }}>
