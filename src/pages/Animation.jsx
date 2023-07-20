@@ -14,11 +14,11 @@ const Animation = () => {
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>
                 <nav className='navbar'>
-                    <a href='#' className='toggle-button'>
+                    {/* <a href='#' className='toggle-button'>
                         <span className='bar'></span>
                         <span className='bar'></span>
                         <span className='bar'></span>
-                    </a>
+                    </a> */}
                     <ul className='menu'>
                         <NavLink to="/theory" className="nava"><div className='linktitle'>Theory</div></NavLink>
                         <NavLink to="/animation" className="nava"><div className='linktitle'>Animation</div></NavLink>
@@ -30,11 +30,8 @@ const Animation = () => {
                 </nav>
             </div>
         </header>
-        <div className='title'>
-            -ANIMATION-
-        </div>
-        {/* <LineCanvas></LineCanvas> */}
-        <SampleSimulator></SampleSimulator>
+        
+        <iframe style={{width:"50%" ,height:"25rem"}} src="https://www.youtube.com/embed/7WKbDyWbxGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
         

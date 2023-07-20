@@ -78,22 +78,22 @@ const SquareRootSpiral = () => {
     <div>
     <br></br>
       <div className='theory'>
-      <div className='actualtheory'>
+      <div className='actualtheory' style={{background:'white',padding:'2%',border:'2px solid darkblue'}}>
         <br></br>
 
-        <p style={{ fontSize: '5.5vh', fontWeight: 'bold' }}>
+        <p style={{ fontSize: '5.5vh', fontWeight: 'bold' ,color:'black' }}>
                 Fun Activity!!!
             </p>
-          <div>First lets explore "What is Square Root Spiral?"</div>
+          <div style={{color:'black'}}>First lets explore "What is Square Root Spiral?"</div>
           <br></br>
-          <div>Can you try clicking the "Draw" button given below. </div>
+          <div style={{color:'black'}}>Can you try clicking the "Draw" button given below. </div>
           <br></br>
           <button id="drawButton" className='btn'>Draw</button>
           <br></br>
           <br></br>
-          <div>The structure you have drawn is how the Square <br></br>Root Spiral actually look like.</div>
+          <div style={{color:'black'}}>The structure you have drawn is how the Square <br></br>Root Spiral actually look like.</div>
           <br></br>
-          <div>In the coming lessons we will understand the <br></br>structure and its construction in detail.</div>
+          <div style={{color:'black'}}>In the coming lessons we will understand the <br></br>structure and its construction in detail.</div>
           <br></br>
         </div>
         {/* <br></br> */}

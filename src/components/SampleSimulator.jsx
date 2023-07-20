@@ -13,7 +13,7 @@ const Simulator = () => {
         const width = canvas.width;
         const height = canvas.height;
 
-        // console.log(square.getBoundingClientRect().left, square.getBoundingClientRect().top);
+        // console.log(square.getBoundingClientRect().left, square.getBoundingClientRect().top);-------------------------
         const xCanvas = square.getBoundingClientRect().left;
         const yCanvas = square.getBoundingClientRect().top;
         console.log(xCanvas, yCanvas);
@@ -23,7 +23,7 @@ const Simulator = () => {
       
         // Set the scale color to green
         context.strokeStyle = 'green';
-      
+
         // Draw scales along the x-axis
         const scaleIntervalX = 75; // Interval between scales
         const startX = scaleIntervalX;
@@ -68,36 +68,33 @@ const Simulator = () => {
         context.fillText('Y', centerX - labelOffset, centerY - centerScaleLength - labelOffset);
       
         // Number the x-axis
-        const xAxisNumberOffset = 14; 
-        const xAxisNumberStart = scaleIntervalX; 
-        const xAxisNumberEnd = (width - scaleIntervalX) / 2;
-        const xAxisNumberInterval = 75; 
+        const xAxisNumberOffset = 14 ; 
+        const xAxisNumberStart = scaleIntervalX ; 
+        const xAxisNumberEnd = (width - scaleIntervalX) / 2 ;
+        const xAxisNumberInterval = 75 ; 
         for (let x = xAxisNumberStart; x <= xAxisNumberEnd; x += xAxisNumberInterval) {
             context.fillText((x / scaleIntervalX).toString(), centerX + x - xAxisNumberOffset, centerY + xAxisNumberOffset);
         }
-        context.lineWidth = 2;
+        context.lineWidth = 2 ;
 
 
-        if (protractorRef.current) {
-          const dimensions = protractorRef.current.getBoundingClientRect();
-          console.log('Protractor dimensions:', dimensions);
+        // if (protractorRef.current) {
+        //   const dimensions = protractorRef.current.getBoundingClientRect();
+        //   console.log('Protractor dimensions:', dimensions);
+        // }
 
-          
-        }
+          // Calculate the initial position of the draggable element
+          const draggableWidth = 200; // Width of the draggable element
+          const draggableHeight = 200; // Height of the draggable element
 
-        // Calculate the initial position of the draggable element
-    const draggableWidth = 250; // Width of the draggable element
-    const draggableHeight = 200; // Height of the draggable element
-    // const draggableX = width / 2 - draggableWidth / 2; // X position to center the draggable element
-    // const draggableY = height / 2 - draggableHeight / 2; // Y position to center the draggable element
-    const draggableX = width / 2 - centerX;
-    const draggableY = height / 2 - centerY;
+          const draggableX = xCanvas ;
+          const draggableY = yCanvas ;
 
-    // Set the initial position of the draggable element
-    draggableRef.current.style.left = `${draggableX}px`;
-    draggableRef.current.style.top = `${draggableY}px`;
+          // Set the initial position of the draggable element
+          draggableRef.current.style.left = `${draggableX}px`;
+          draggableRef.current.style.top = `${draggableY}px`;
 
-    }, []);
+      }, []);
     
 
     return (

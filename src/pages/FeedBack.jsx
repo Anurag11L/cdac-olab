@@ -13,11 +13,11 @@ const FeedBack = () => {
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>
                 <nav className='navbar'>
-                    <a href='#' className='toggle-button'>
+                    {/* <a href='#' className='toggle-button'>
                         <span className='bar'></span>
                         <span className='bar'></span>
                         <span className='bar'></span>
-                    </a>
+                    </a> */}
                     <ul className='menu'>
                             <NavLink to="/theory" className="nava"><div className='linktitle'>Theory</div></NavLink>
                             <NavLink to="/animation" className="nava"><div className='linktitle'>Animation</div></NavLink>
@@ -29,9 +29,9 @@ const FeedBack = () => {
                 </nav>
             </div>
         </header>
-        <div className='title'>
+        {/* <div className='title'>
             -FEEDBACK-
-        </div>
+        </div> */}
         {/* <Circle></Circle> */}
         <DraggableDiv></DraggableDiv>
     </>

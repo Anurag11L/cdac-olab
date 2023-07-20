@@ -53,7 +53,9 @@ function Quiz() {
 
   return (
     <>
-    <div className="quiz">
+    
+    <div className="quiz" style={{padding:'2rem',border:'4px solid darkblue',borderRadius:'2rem'}}>
+    <h1 style={{width:'100%'}}>QUIZ</h1>
       {showScore ? 
       (
         <div className="score-section">

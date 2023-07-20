@@ -10,8 +10,11 @@ const Simulator = () => {
   const [rotation, setRotation] = useState(0);
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
-  const [showNextInstruction, setShowNextInstruction] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+
+  // Add this state variable at the top of the component, along with other state variables
+const [showEnterButton, setShowEnterButton] = useState(true);
+
 
   const [count, setCount] = useState(1);
   const [x, setX] = useState(1);
@@ -121,6 +124,7 @@ const handleCreateClick = () => {
   // Iteration 1----------------------------------------------
     if(count === 1){
       if(angle ===0){
+        if(count < data){
           ctx.beginPath();
           ctx.moveTo(centerX + 60, centerY);
           ctx.lineTo(centerX, centerY);
@@ -131,6 +135,7 @@ const handleCreateClick = () => {
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
           setCount(2);
+        }
       }
     }
 
@@ -157,16 +162,18 @@ const handleCreateClick = () => {
     // Iteration 2-----------------------------------------------------
     if(count === 2){
       if(angle === hypo ){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx, centerY - 60 * yy);
-        ctx.lineTo(centerX + 60 * dd, centerY - 60 * cc);
-        ctx.moveTo(centerX + 60 * xx, centerY - 60 * yy);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(3);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx, centerY - 60 * yy);
+          ctx.lineTo(centerX + 60 * dd, centerY - 60 * cc);
+          ctx.moveTo(centerX + 60 * xx, centerY - 60 * yy);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(3);
+        }
       }
     }
 
@@ -192,16 +199,18 @@ const handleCreateClick = () => {
     // Iteration 3-----------------------------------------------------
     if(count === 3){
       if(angle <= (totalAngle + 2) && angle >=(totalAngle - 2)){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx1, centerY - 60 * yy1);
-        ctx.lineTo(centerX + 60 * dd1, centerY - 60 * cc1);
-        ctx.moveTo(centerX + 60 * xx1, centerY - 60 * yy1);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(4);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx1, centerY - 60 * yy1);
+          ctx.lineTo(centerX + 60 * dd1, centerY - 60 * cc1);
+          ctx.moveTo(centerX + 60 * xx1, centerY - 60 * yy1);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(4);
+        }
       }
     }
 
@@ -227,6 +236,7 @@ const handleCreateClick = () => {
     // Iteration 4-----------------------------------------------------
     if(count === 4){
       if(angle <= (hypo2 + 2) && angle >=(hypo2 - 2)){
+        if(count < data){
         ctx.beginPath();
         ctx.moveTo(centerX + 60, centerY);
         ctx.lineTo(centerX, centerY);
@@ -237,6 +247,7 @@ const handleCreateClick = () => {
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
         setCount(5);
+        }
       }
     }
 
@@ -262,16 +273,18 @@ const handleCreateClick = () => {
     // Iteration 5-----------------------------------------------------
     if(count === 5){
       if(angle <= (hypo3 + 2) && angle >=(hypo3 - 2)){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx3, centerY - 60 * yy3);
-        ctx.lineTo(centerX + 60 * dd3, centerY - 60 * cc3);
-        ctx.moveTo(centerX + 60 * xx3, centerY - 60 * yy3);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(6);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx3, centerY - 60 * yy3);
+          ctx.lineTo(centerX + 60 * dd3, centerY - 60 * cc3);
+          ctx.moveTo(centerX + 60 * xx3, centerY - 60 * yy3);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(6);
+        }
       }
     }
 
@@ -297,16 +310,18 @@ const handleCreateClick = () => {
     // Iteration 6-----------------------------------------------------
     if(count === 6){
       if(angle <= (hypo4 + 2) && angle >=(hypo4 - 2)){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx4, centerY - 60 * yy4);
-        ctx.lineTo(centerX + 60 * dd4, centerY - 60 * cc4);
-        ctx.moveTo(centerX + 60 * xx4, centerY - 60 * yy4);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(7);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx4, centerY - 60 * yy4);
+          ctx.lineTo(centerX + 60 * dd4, centerY - 60 * cc4);
+          ctx.moveTo(centerX + 60 * xx4, centerY - 60 * yy4);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(7);
+        }
       }
     }
 
@@ -333,16 +348,18 @@ const handleCreateClick = () => {
     // Iteration 7-----------------------------------------------------
     if(count === 7){
       if(angle <= (hypo5 + 2) && angle >=(hypo5 - 2)){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx5, centerY - 60 * yy5);
-        ctx.lineTo(centerX + 60 * dd5, centerY - 60 * cc5);
-        ctx.moveTo(centerX + 60 * xx5, centerY - 60 * yy5);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(8);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx5, centerY - 60 * yy5);
+          ctx.lineTo(centerX + 60 * dd5, centerY - 60 * cc5);
+          ctx.moveTo(centerX + 60 * xx5, centerY - 60 * yy5);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(8);
+        }
       }
     }
 
@@ -368,16 +385,18 @@ const handleCreateClick = () => {
     // Iteration 8-----------------------------------------------------
     if(count === 8){
       if(angle <= (hypo6 + 2) && angle >=(hypo6 - 2)){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx6, centerY - 60 * yy6);
-        ctx.lineTo(centerX + 60 * dd6, centerY - 60 * cc6);
-        ctx.moveTo(centerX + 60 * xx6, centerY - 60 * yy6);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(9);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx6, centerY - 60 * yy6);
+          ctx.lineTo(centerX + 60 * dd6, centerY - 60 * cc6);
+          ctx.moveTo(centerX + 60 * xx6, centerY - 60 * yy6);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(9);
+        }
       }
     }
 
@@ -403,16 +422,18 @@ const handleCreateClick = () => {
     // Iteration 9-----------------------------------------------------
     if(count === 9){
       if(angle <= (hypo7 + 2) && angle >=(hypo7 - 2)){
-        ctx.beginPath();
-        ctx.moveTo(centerX + 60, centerY);
-        ctx.lineTo(centerX, centerY);
-        ctx.moveTo(centerX + 60 * xx7, centerY - 60 * yy7);
-        ctx.lineTo(centerX + 60 * dd7, centerY - 60 * cc7);
-        ctx.moveTo(centerX + 60 * xx7, centerY - 60 * yy7);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "#ff0000";
-        ctx.stroke();
-        setCount(10);
+        if(count < data){
+          ctx.beginPath();
+          ctx.moveTo(centerX + 60, centerY);
+          ctx.lineTo(centerX, centerY);
+          ctx.moveTo(centerX + 60 * xx7, centerY - 60 * yy7);
+          ctx.lineTo(centerX + 60 * dd7, centerY - 60 * cc7);
+          ctx.moveTo(centerX + 60 * xx7, centerY - 60 * yy7);
+          ctx.lineTo(centerX, centerY);
+          ctx.strokeStyle = "#ff0000";
+          ctx.stroke();
+          setCount(10);
+        }
       }
     }
 
@@ -429,30 +450,30 @@ const handleCircle = () => {
   const centerY = height / 2;
 
   if(count === 1){
-      
-      const radius = 60;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-      ctx.strokeStyle = "#0000ff";
-      ctx.stroke();
-      ctx.closePath();
+      if(data === 1){
+        const radius = 60;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = "#0000ff";
+        ctx.stroke();
+        ctx.closePath();
 
-      ctx.beginPath();
-      ctx.moveTo(centerX +60, centerY );
-      ctx.lineTo(centerX, centerY);
-      ctx.strokeStyle = "ff0000";
-      ctx.stroke();
-      ctx.closePath();
+        ctx.beginPath();
+        ctx.moveTo(centerX +60, centerY );
+        ctx.lineTo(centerX, centerY);
+        ctx.strokeStyle = "ff0000";
+        ctx.stroke();
+        ctx.closePath();
 
-      // Draw text for line length above the line
-      ctx.font = '20px Arial';
-      ctx.fillStyle = "ff0000";
-      ctx.fillText(`${Math.sqrt(1).toFixed(1)}`, (centerX +330) / 2, (centerY +290)/2);
-
+        // Draw text for line length above the line
+        ctx.font = '20px Arial';
+        ctx.fillStyle = "ff0000";
+        ctx.fillText(`${Math.sqrt(1).toFixed(2)}`, (centerX +330) / 2, (centerY +290)/2);
+      }
   }
 
   if(count === 2){
-      
+      if(data ===2){
       const radius = 60 * Math.sqrt(2);
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -470,11 +491,12 @@ const handleCircle = () => {
       // Draw text for line length above the line
       ctx.font = '20px Arial';
       ctx.fillStyle = "ff0000";
-      ctx.fillText(`${Math.sqrt(2).toFixed(1)}`, (centerX +340) / 2, (centerY +290)/2);
+      ctx.fillText(`${Math.sqrt(2).toFixed(2)}`, (centerX +340) / 2, (centerY +290)/2);
+      }
   }
 
   if(count === 3 ){
-      
+      if(data === 3){
       const radius = 60 * Math.sqrt(3);
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -492,11 +514,12 @@ const handleCircle = () => {
       // Draw text for line length above the line
       ctx.font = '20px Arial';
       ctx.fillStyle = "00ff00";
-      ctx.fillText(`${Math.sqrt(3).toFixed(1)}`, (centerX +350) / 2, (centerY +290)/2);
+      ctx.fillText(`${Math.sqrt(3).toFixed(2)}`, (centerX +350) / 2, (centerY +290)/2);
+      }
   }
 
   if(count === 4 ){
-      
+    if(data === 4){
     const radius = 60 * Math.sqrt(4);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -514,121 +537,127 @@ const handleCircle = () => {
     // Draw text for line length above the line
     ctx.font = '20px Arial';
     ctx.fillStyle = "0000ff";
-    ctx.fillText(`${Math.sqrt(4).toFixed(1)}`, (centerX +390) / 2, (centerY +290)/2);
+    ctx.fillText(`${Math.sqrt(4).toFixed(2)}`, (centerX +390) / 2, (centerY +290)/2);
+    }
 }
 
 if(count === 5){
-      
-  const radius = 60 * Math.sqrt(5);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#0000ff";
-  ctx.stroke();
-  ctx.closePath();
+  if(data === 5){
+    const radius = 60 * Math.sqrt(5);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
 
-  ctx.beginPath();
-  ctx.moveTo(centerX +(60 * Math.sqrt(5)), centerY );
-  ctx.lineTo(centerX, centerY);
-  ctx.strokeStyle = "ff0000";
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(5)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
 
-  // Draw text for line length above the line
-  ctx.font = '20px Arial';
-  ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(5).toFixed(1)}`, (centerX +400) / 2, (centerY +290)/2);
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(5).toFixed(2)}`, (centerX +400) / 2, (centerY +290)/2);
+  }
 }
 
 if(count === 6){
-      
-  const radius = 60 * Math.sqrt(6);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#0000ff";
-  ctx.stroke();
-  ctx.closePath();
+  if(data === 6){
+    const radius = 60 * Math.sqrt(6);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
 
-  ctx.beginPath();
-  ctx.moveTo(centerX +(60 * Math.sqrt(6)), centerY );
-  ctx.lineTo(centerX, centerY);
-  ctx.strokeStyle = "ff0000";
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(6)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
 
-  // Draw text for line length above the line
-  ctx.font = '20px Arial';
-  ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(6).toFixed(1)}`, (centerX +420) / 2, (centerY +290)/2);
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(6).toFixed(2)}`, (centerX +420) / 2, (centerY +290)/2);
+  }
 }
 
 if(count === 7){
-      
-  const radius = 60 * Math.sqrt(7);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#0000ff";
-  ctx.stroke();
-  ctx.closePath();
+  if(data === 7){
+    const radius = 60 * Math.sqrt(7);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
 
-  ctx.beginPath();
-  ctx.moveTo(centerX +(60 * Math.sqrt(7)), centerY );
-  ctx.lineTo(centerX, centerY);
-  ctx.strokeStyle = "ff0000";
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(7)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
 
-  // Draw text for line length above the line
-  ctx.font = '20px Arial';
-  ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(7).toFixed(1)}`, (centerX +450) / 2, (centerY +290)/2);
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(7).toFixed(2)}`, (centerX +450) / 2, (centerY +290)/2);
+  }
 }
 
 if(count === 8){
-      
-  const radius = 60 * Math.sqrt(8);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#0000ff";
-  ctx.stroke();
-  ctx.closePath();
+  if(data === 8){
+    const radius = 60 * Math.sqrt(8);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
 
-  ctx.beginPath();
-  ctx.moveTo(centerX +(60 * Math.sqrt(8)), centerY );
-  ctx.lineTo(centerX, centerY);
-  ctx.strokeStyle = "ff0000";
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(8)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
 
-  // Draw text for line length above the line
-  ctx.font = '20px Arial';
-  ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(8).toFixed(1)}`, (centerX +470) / 2, (centerY +290)/2);
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(8).toFixed(2)}`, (centerX +470) / 2, (centerY +290)/2);
+  }
 }
 
 if(count === 9){
-      
-  const radius = 60 * Math.sqrt(9);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#0000ff";
-  ctx.stroke();
-  ctx.closePath();
+  if(data === 9){
+    const radius = 60 * Math.sqrt(9);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
 
-  ctx.beginPath();
-  ctx.moveTo(centerX +(60 * Math.sqrt(9)), centerY );
-  ctx.lineTo(centerX, centerY);
-  ctx.strokeStyle = "ff0000";
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(9)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
 
-  // Draw text for line length above the line
-  ctx.font = '20px Arial';
-  ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(9).toFixed(1)}`, (centerX +510) / 2, (centerY +290)/2);
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(9).toFixed(2)}`, (centerX +510) / 2, (centerY +290)/2);
+  }
 }
 
 if(count === 10){
-      
+  if(data === 10){
   const radius = 60 * Math.sqrt(10);
   ctx.beginPath();
   ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
@@ -646,7 +675,8 @@ if(count === 10){
   // Draw text for line length above the line
   ctx.font = '20px Arial';
   ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(10).toFixed(1)}`, (centerX +540) / 2, (centerY +290)/2);
+  ctx.fillText(`${Math.sqrt(10).toFixed(2)}`, (centerX +540) / 2, (centerY +290)/2);
+  }
 }
 
 }
@@ -660,13 +690,21 @@ if(count === 10){
 
         //-------------------------//---------------------//--------------------//-------------
         const handleClick = (event) => {
+          // Check if the input value contains a decimal point
+          if (event.target.value.includes('.')) {
+            setShowErrorModal(true);
+            event.target.value = "";
+            return; 
+          }
+
           const inputB = parseInt(event.target.value);
+
           if(inputB >= 3 && inputB <= 9) {
             const m = inputB;
             setData(m);
             setDigit(m);
             setPrint(false);
-            setShowNextInstruction(false);
+            setShowEnterButton(false); // Hide the "Enter" button
           }else if (event.target.value.trim() !== "") {
             setShowErrorModal(true);
             event.target.value = ""; // Clear the input field
@@ -706,14 +744,14 @@ if(count === 10){
 {/* Header--------------------------------------------------------------------------------------------------------------------------*/}
         <header>
                 <div>
-                    <a href='/theory' className='logo'>Square Root Spiral</a>
+                    <a href='/theory' className='logo' >Square Root Spiral</a>
                     <nav className='navbar'>
-                        <a href='#' className='toggle-button'>
+                        {/* <a href='#' className='toggle-button'>
                             <span className='bar'></span>
                             <span className='bar'></span>
                             <span className='bar'></span>
-                        </a>
-                        <ul className='menu'>
+                        </a> */}
+                        <ul className='menu' >
                             <NavLink to="/theory" className="nava"><div className='linktitle'>Theory</div></NavLink>
                             <NavLink to="/animation" className="nava"><div className='linktitle'>Animation</div></NavLink>
                             <NavLink to="/simulator" className="nava"><div className='linktitle'>Simulator</div></NavLink>
@@ -729,10 +767,10 @@ if(count === 10){
 
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
-        <div className='title'>
+        {/* <div className='title'>
             -SIMULATOR-
-        </div>
-        <div>Objective: Construction of the Square Root Spiral.</div>
+        </div> */}
+        <div style={{ color:'black',font: 'bolder'}}>Objective: Construction of the Square Root Spiral.</div>
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 
@@ -780,11 +818,24 @@ if(count === 10){
 
                         {/* {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)} */}
                         <br></br>
-                        <div className='bindnew'>
-                        {showErrorModal ?null :(<div className='labels'><input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)}
 
-                        {showErrorModal ?null :(<div className='labels'><button className='btn' onClick={() => setPrint(true)}>Enter</button></div>)}
-                        </div>
+                        {showErrorModal ? null : (
+                          <div className='bindnew'>
+                            {showEnterButton ? (
+                              <div className='labels'>
+                                <input type='number' name='input1' className='btn' onChange={handleClick} />
+                              </div>
+                            ) : (
+                              <div className='labels'><>Calculate value of √{data}.</></div>
+                            )}
+                            {/* {showEnterButton ? (
+                              <div className='labels'>
+                                <button className='btn' onClick={() => setPrint(true)}>Enter</button>
+                              </div>
+                            ) : null} */}
+                          </div>
+                        )}
+
                         {/* <div ><div className='labels'><br></br>( {print ? <>{data}</> : null} )</div></div> */}
                         {/* <div ><div className='labels'><br></br>( {print ? <>{m1}</> : null} )</div></div> */}
 
@@ -806,11 +857,10 @@ if(count === 10){
                         </div>
 
                         <br></br>
-                        {showNextInstruction && renderInstruction()}
 
                         <div className='rec-instructions'>
                         <div>Instructions :</div>
-                        <div>Step 1: Enter a number between 3 and 9 of your choice in the input bar given above and PRESS 'Enter'.</div>
+                        <div>Step 1: Enter an integer between 3 and 9 of your choice in the input bar given above.</div>
                         <br></br>
                         <div>Step 2: Place the protractor on the vertex and adjust the angle of the protractor with respect to the hypotenuse, then PRESS 'Trace'. </div>
                         <br></br>
@@ -836,29 +886,12 @@ if(count === 10){
         style={modalStyles}
       >
         <h2 className="error-message">Error</h2>
-        {/* <p className="error-message"></p> */}
-        <p className="error-message">Enter a number between 3 and 9.</p>
+        
+        <p className="error-message">Enter an integer between 3 and 9.</p>
+        {/* <p className="error-message">Decimal value is no</p> */}
         <button className='btn' onClick={closeErrorModal}>Close</button>
       </Modal>
 
-      {/* <div className='instructions'> */}
-      {/* <div className='bind'>  */}
-        {/* <div>
-            <p style={{ fontSize: '30px', fontWeight: 'bold' }}>
-            Instructions
-            </p>
-            <p >Step 1: Check the angle of Protractor and the angle of hypotenuse.<br></br>    i. If both the angles are equal proceed with (Step 2)<br></br>    ii. If both he angles are not equal use the (Rotate 10) <br></br>and (rotate 1) buttons to match the angles. </p>
-
-            <p >Step 2: Click on the "Trace" button to draw a triangle.</p>
-            <p>Step 3: Calculate the length of hypotenuse you have just constructed.</p>
-            <p>Step 4: Check whether the length of hypotenuse you have calculated<br></br> and the graph value is equal or not.</p>
-            <p>Step 5: Repeat Step 1.</p>
-          </div> */}
-          {/* <div> */}
-            {/* <img src='./src/components/diagram1.png' className='diagram'></img> */}
-          {/* </div> */}
-        {/* </div> */}
-      {/* </div> */}
       <br></br>
     </>
   );
