@@ -11,9 +11,16 @@ const Simulator = () => {
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [dataValue, setDataValue] = useState(0);
 
   // Add this state variable at the top of the component, along with other state variables
 const [showEnterButton, setShowEnterButton] = useState(true);
+
+const circleInputRef = useRef(null);
+
+const [showInputField, setShowInputField] = useState(false);
+const [circleRadius, setCircleRadius] = useState(0);
+
 
 
   const [count, setCount] = useState(1);
@@ -469,35 +476,64 @@ const handleCircle = () => {
         ctx.font = '20px Arial';
         ctx.fillStyle = "ff0000";
         ctx.fillText(`${Math.sqrt(1).toFixed(2)}`, (centerX +330) / 2, (centerY +290)/2);
+        setDataValue( Math.sqrt(1).toFixed(2));
+        setShowInputField(!showInputField);
       }
   }
 
   if(count === 2){
       if(data ===2){
-      const radius = 60 * Math.sqrt(2);
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-      ctx.strokeStyle = "#0000ff";
-      ctx.stroke();
-      ctx.closePath();
+        const radius = 60 * Math.sqrt(2);
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = "#0000ff";
+        ctx.stroke();
+        ctx.closePath();
 
-      ctx.beginPath();
-      ctx.moveTo(centerX +(60 * Math.sqrt(2)), centerY );
-      ctx.lineTo(centerX, centerY);
-      ctx.strokeStyle = "ff0000";
-      ctx.stroke();
-      ctx.closePath();
+        ctx.beginPath();
+        ctx.moveTo(centerX +(60 * Math.sqrt(2)), centerY );
+        ctx.lineTo(centerX, centerY);
+        ctx.strokeStyle = "ff0000";
+        ctx.stroke();
+        ctx.closePath();
 
-      // Draw text for line length above the line
-      ctx.font = '20px Arial';
-      ctx.fillStyle = "ff0000";
-      ctx.fillText(`${Math.sqrt(2).toFixed(2)}`, (centerX +340) / 2, (centerY +290)/2);
+        // Draw text for line length above the line
+        ctx.font = '20px Arial';
+        ctx.fillStyle = "ff0000";
+        ctx.fillText(`${Math.sqrt(2).toFixed(2)}`, (centerX +340) / 2, (centerY +290)/2);
+        setDataValue( Math.sqrt(2).toFixed(2));
+        setShowInputField(!showInputField);
       }
   }
 
   if(count === 3 ){
       if(data === 3){
-      const radius = 60 * Math.sqrt(3);
+        const radius = 60 * Math.sqrt(3);
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = "#0000ff";
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(centerX +(60 * Math.sqrt(3)), centerY );
+        ctx.lineTo(centerX, centerY);
+        ctx.strokeStyle = "ff0000";
+        ctx.stroke();
+        ctx.closePath();
+
+        // Draw text for line length above the line
+        ctx.font = '20px Arial';
+        ctx.fillStyle = "00ff00";
+        ctx.fillText(`${Math.sqrt(3).toFixed(2)}`, (centerX +350) / 2, (centerY +290)/2);
+        setDataValue( Math.sqrt(3).toFixed(2));
+        setShowInputField(!showInputField);
+      }
+  }
+
+  if(count === 4 ){
+    if(data === 4){
+      const radius = 60 * Math.sqrt(4);
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
       ctx.strokeStyle = "#0000ff";
@@ -505,7 +541,7 @@ const handleCircle = () => {
       ctx.closePath();
 
       ctx.beginPath();
-      ctx.moveTo(centerX +(60 * Math.sqrt(3)), centerY );
+      ctx.moveTo(centerX +(60 * Math.sqrt(4)), centerY );
       ctx.lineTo(centerX, centerY);
       ctx.strokeStyle = "ff0000";
       ctx.stroke();
@@ -513,31 +549,10 @@ const handleCircle = () => {
 
       // Draw text for line length above the line
       ctx.font = '20px Arial';
-      ctx.fillStyle = "00ff00";
-      ctx.fillText(`${Math.sqrt(3).toFixed(2)}`, (centerX +350) / 2, (centerY +290)/2);
-      }
-  }
-
-  if(count === 4 ){
-    if(data === 4){
-    const radius = 60 * Math.sqrt(4);
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
-    ctx.stroke();
-    ctx.closePath();
-
-    ctx.beginPath();
-    ctx.moveTo(centerX +(60 * Math.sqrt(4)), centerY );
-    ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
-    ctx.stroke();
-    ctx.closePath();
-
-    // Draw text for line length above the line
-    ctx.font = '20px Arial';
-    ctx.fillStyle = "0000ff";
-    ctx.fillText(`${Math.sqrt(4).toFixed(2)}`, (centerX +390) / 2, (centerY +290)/2);
+      ctx.fillStyle = "0000ff";
+      ctx.fillText(`${Math.sqrt(4).toFixed(2)}`, (centerX +390) / 2, (centerY +290)/2);
+      setDataValue( Math.sqrt(4).toFixed(2));
+      setShowInputField(!showInputField);
     }
 }
 
@@ -561,6 +576,8 @@ if(count === 5){
     ctx.font = '20px Arial';
     ctx.fillStyle = "0000ff";
     ctx.fillText(`${Math.sqrt(5).toFixed(2)}`, (centerX +400) / 2, (centerY +290)/2);
+    setDataValue( Math.sqrt(5).toFixed(2));
+    setShowInputField(!showInputField);
   }
 }
 
@@ -584,6 +601,8 @@ if(count === 6){
     ctx.font = '20px Arial';
     ctx.fillStyle = "0000ff";
     ctx.fillText(`${Math.sqrt(6).toFixed(2)}`, (centerX +420) / 2, (centerY +290)/2);
+    setDataValue( Math.sqrt(6).toFixed(2));
+    setShowInputField(!showInputField);
   }
 }
 
@@ -607,6 +626,8 @@ if(count === 7){
     ctx.font = '20px Arial';
     ctx.fillStyle = "0000ff";
     ctx.fillText(`${Math.sqrt(7).toFixed(2)}`, (centerX +450) / 2, (centerY +290)/2);
+    setDataValue( Math.sqrt(7).toFixed(2));
+    setShowInputField(!showInputField);
   }
 }
 
@@ -630,6 +651,8 @@ if(count === 8){
     ctx.font = '20px Arial';
     ctx.fillStyle = "0000ff";
     ctx.fillText(`${Math.sqrt(8).toFixed(2)}`, (centerX +470) / 2, (centerY +290)/2);
+    setDataValue( Math.sqrt(8).toFixed(2));
+    setShowInputField(!showInputField);
   }
 }
 
@@ -653,31 +676,36 @@ if(count === 9){
     ctx.font = '20px Arial';
     ctx.fillStyle = "0000ff";
     ctx.fillText(`${Math.sqrt(9).toFixed(2)}`, (centerX +510) / 2, (centerY +290)/2);
+    setDataValue( Math.sqrt(9).toFixed(2));
+    setShowInputField(!showInputField);
   }
 }
 
 if(count === 10){
   if(data === 10){
-  const radius = 60 * Math.sqrt(10);
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#0000ff";
-  ctx.stroke();
-  ctx.closePath();
+    const radius = 60 * Math.sqrt(10);
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.strokeStyle = "#0000ff";
+    ctx.stroke();
+    ctx.closePath();
 
-  ctx.beginPath();
-  ctx.moveTo(centerX +(60 * Math.sqrt(10)), centerY );
-  ctx.lineTo(centerX, centerY);
-  ctx.strokeStyle = "ff0000";
-  ctx.stroke();
-  ctx.closePath();
+    ctx.beginPath();
+    ctx.moveTo(centerX +(60 * Math.sqrt(10)), centerY );
+    ctx.lineTo(centerX, centerY);
+    ctx.strokeStyle = "ff0000";
+    ctx.stroke();
+    ctx.closePath();
 
-  // Draw text for line length above the line
-  ctx.font = '20px Arial';
-  ctx.fillStyle = "0000ff";
-  ctx.fillText(`${Math.sqrt(10).toFixed(2)}`, (centerX +540) / 2, (centerY +290)/2);
+    // Draw text for line length above the line
+    ctx.font = '20px Arial';
+    ctx.fillStyle = "0000ff";
+    ctx.fillText(`${Math.sqrt(10).toFixed(2)}`, (centerX +540) / 2, (centerY +290)/2);
+    setDataValue( Math.sqrt(10).toFixed(2));
+    setShowInputField(!showInputField);
   }
 }
+
 
 }
 
@@ -732,6 +760,44 @@ if(count === 10){
   
         const closeErrorModal = () => {
           setShowErrorModal(false);
+        };
+
+        const submit = () => {
+          const enteredValue = parseFloat(circleInputRef.current.value);
+          setCircleRadius(enteredValue);
+          console.log(enteredValue);
+          // setShowInputField(false); // Hide the input field after submission
+      
+          
+          console.log(dataValue);
+
+          if (count === 3 && enteredValue === 1.73) {
+            alert("You have successfully found the value."); // Show "Thank You" message in a pop-up
+          }
+          else if(count === 4 && enteredValue === 2){
+            alert("You have successfully found the value.");
+          }
+          else if(count === 5 && enteredValue === 2.24){
+            alert("You have successfully found the value.");
+          }
+          else if(count === 6 && enteredValue === 2.44){
+            alert("You have successfully found the value.");
+          }
+          else if(count === 7 && enteredValue === 2.64){
+            alert("You have successfully found the value.");
+          }
+          else if(count === 8 && enteredValue === 2.82){
+            alert("You have successfully found the value.");
+          }
+          else if(count === 9 && enteredValue === 3){
+            alert("You have successfully found the value.");
+          }
+          else if(count === 10 && enteredValue === 3.16){
+            alert("You have successfully found the value.");
+          }
+          else{
+            alert("check the entered value.")
+          }
         };
 
 //Rectangle-------------------------------------------------------------//
@@ -867,8 +933,23 @@ if(count === 10){
                         <div>Step 3: Repeat Step 2 until you have reached the desired square root.</div>
                         <br></br>
                         <div>Step 4: Construct a circle and record the length of the square root spiral. </div>
+                        {/* <div>---------------</div> */}
+                        <br></br>
 
                         </div>
+
+                        {showInputField && (
+                        <div>
+                        {/* <br></br> */}
+                        <div ><b>Enter your calculated value as shown on the graph.</b></div>
+                          <input
+                            type="number"
+                            placeholder="Enter the value."
+                            ref={circleInputRef}
+                          />
+                          <button className='btn' onClick={submit}>Submit</button>
+                        </div>
+                      )}
                         {/* <p className='labels'>Protrator is rotated by angle: {angle}°</p> */}
                     
                     </div>

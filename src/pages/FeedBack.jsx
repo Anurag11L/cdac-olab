@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import DraggableElement from '../components/DraggableElement';
 import DraggableDiv from '../components/DraggableElement';
+import LineCanvas from '../components/lineCanvas';
 // import Circle from '../components/Circle1';
 
 const FeedBack = () => {
@@ -33,7 +34,8 @@ const FeedBack = () => {
             -FEEDBACK-
         </div> */}
         {/* <Circle></Circle> */}
-        <DraggableDiv></DraggableDiv>
+        {/* <DraggableDiv></DraggableDiv> */}
+        <LineCanvas></LineCanvas>
     </>
   )
 }
