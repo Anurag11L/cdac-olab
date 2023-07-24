@@ -13,15 +13,22 @@ const questions = [
     options: ['True', 'False'],
     answer: 'False',
     explanation: 'A number line contains both positive and negative numbers. Since, square root of negative number is not a real number, and negative numbers cannot be expressed as the square root of a natural number(m), not every point on the number line can be represented in the form √m where m is a natural number.',
-    // image:'E:\cdac final project\quiz\quizz\src\diagram1.png'
+    // image:'src/components/spiral.png'
 
   },
   {
-    question: 'Every point on the number line is of the form √m, where m is a natural number.',
-    options: ['True', 'False'],
-    answer: 'False',
-    explanation: 'A number line contains both positive and negative numbers. Since, square root of negative number is not a real number, and negative numbers cannot be expressed as the square root of a natural number(m), not every point on the number line can be represented in the form √m where m is a natural number.',
-    // image:'E:\cdac final project\quiz\quizz\src\diagram1.png'
+    question: ' What is the length of OC ? ',
+    options: ['√7', '√2','√4','√5'],
+    answer: '√4',
+    explanation: ' The length of OC is √4.',
+    image:'src/components/spiralQ.jpg'
+  },
+  {
+    question: 'Can we use Square Root Spiral to calculate root of 4.35 ?',
+    options: ['Yes', 'No'],
+    answer: 'No',
+    explanation: 'Square Root Spiral provides root of only positive numbers.',
+    // image:'src/components/spiral.png'
 
   },
   // Add more questions...
@@ -70,7 +77,8 @@ function Quiz() {
                 <span>Question {index + 1}</span>/{questions.length}
               </div>
 
-              <div className="question-text">{question.question}</div>
+              <div className="question-text">{question.question}
+              {question.image && <img src={question.image} alt="Question" style={{ border:'2px solid black',width:'40vw' }} />}</div>
 
               <div className="answer-section">
                 {question.options.map((option) => (
@@ -86,7 +94,6 @@ function Quiz() {
                   <div className="explanation-text">Explanation: {question.explanation}</div>
                   {question.image && (
                     <div className="explanation-image">
-                      <img src={question.image} alt="Explanation" />
                     </div>
                   )}
                 </div>
@@ -94,9 +101,6 @@ function Quiz() {
             </div>
           ))}
           
-          {/* <button className="submit-button" onClick={handleSubmit}>
-            Submit
-          </button> */}
           <br></br>
           <div className="score-section">
           You scored {calculateScore()} out of {questions.length}

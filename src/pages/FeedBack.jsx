@@ -35,7 +35,7 @@ const FeedBack = () => {
         </div> */}
         {/* <Circle></Circle> */}
         {/* <DraggableDiv></DraggableDiv> */}
-        <LineCanvas></LineCanvas>
+        {/* <LineCanvas></LineCanvas> */}
     </>
   )
 }

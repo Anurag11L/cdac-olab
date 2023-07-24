@@ -87,7 +87,7 @@ body {
 }
 
 
-@media (max-width: 770px){
+@media (max-width: 1000px){
   .toggle-button{
     display: flex;
   }
@@ -453,7 +453,7 @@ body {
     width: 400px;
   }
   .rec {
-    height: 600px;
+    height: 620px;
     width: 400px;
   }
   .labels{
@@ -486,7 +486,7 @@ body {
     width: 500px;
   }
   .rec {
-    height: 650px;
+    height: 670px;
     width: 500px;
   }
   .labels{
@@ -519,7 +519,7 @@ body {
     width: 500px;
   }
   .rec {
-    height: 650px;
+    height: 670px;
     width: 500px;
   }
   .labels{
@@ -563,7 +563,7 @@ body {
     width: 550px;
   }
   .rec {
-    height: 650px;
+    height: 670px;
     width: 450px;
   }
   .labels{
@@ -602,11 +602,11 @@ body {
     display: flex;
   }
   .square {
-    height: 600px;
-    width: 600px;
+    height: 630px;
+    width: 630px;
   }
   .rec {
-    height: 650px;
+    height: 670px;
     width: 500px;
   }
   .labels{

@@ -14,23 +14,21 @@ const Simulator = () => {
   const [dataValue, setDataValue] = useState(0);
 
   // Add this state variable at the top of the component, along with other state variables
-const [showEnterButton, setShowEnterButton] = useState(true);
+  const [showEnterButton, setShowEnterButton] = useState(true);
 
-const circleInputRef = useRef(null);
+  const circleInputRef = useRef(null);
 
-const [showInputField, setShowInputField] = useState(false);
-const [circleRadius, setCircleRadius] = useState(0);
-
+  const [showInputField, setShowInputField] = useState(false);
+  const [, setCircleRadius] = useState(0);
 
 
   const [count, setCount] = useState(1);
-  const [x, setX] = useState(1);
-  const [y, setY] = useState(1);
-  const [d, setD] = useState(1);
-  const [c, setC] = useState(0);
-  const [digit, setDigit] = useState(0);
-
-  const [angleText, setAngleText] = useState(0);
+  const [x] = useState(1);
+  const [y] = useState(1);
+  const [d] = useState(1);
+  const [c] = useState(0);
+  const [, setDigit] = useState(0);
+  
 // Canvas-----------------------------------------------------------------//
   const canvasRef1 = useRef(null);
     
@@ -119,6 +117,25 @@ const [circleRadius, setCircleRadius] = useState(0);
     context.strokeStyle = "#ff0000";
     context.stroke();
 
+    context.beginPath();
+    const radius = 3;
+    context.fillStyle = 'black';
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    context.fill();
+
+    context.beginPath();
+    const radius1 = 3;
+    context.fillStyle = 'black';
+    context.arc(centerX+60, centerY, radius1, 0, 2 * Math.PI);
+    context.fill();
+
+    // context.beginPath();
+    //       // const radius1 = 3;
+    //       context.fillStyle = 'black';
+    //       context.arc(0.2928932188, 1.707106781, radius1, 0, 2 * Math.PI);
+    //       context.fill();
+
+
 }, []);
 
 
@@ -141,6 +158,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX+60, centerY-60, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(2);
         }
       }
@@ -179,6 +203,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx, centerY - 60 * yy, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(3);
         }
       }
@@ -216,6 +247,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx1, centerY - 60 * yy1, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(4);
         }
       }
@@ -253,6 +291,13 @@ const handleCreateClick = () => {
         ctx.lineTo(centerX, centerY);
         ctx.strokeStyle = "#ff0000";
         ctx.stroke();
+
+        ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx2, centerY - 60 * yy2, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
         setCount(5);
         }
       }
@@ -290,6 +335,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx3, centerY - 60 * yy3, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(6);
         }
       }
@@ -327,6 +379,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx4, centerY - 60 * yy4, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(7);
         }
       }
@@ -365,6 +424,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx5, centerY - 60 * yy5, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(8);
         }
       }
@@ -402,6 +468,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx6, centerY - 60 * yy6, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(9);
         }
       }
@@ -439,6 +512,13 @@ const handleCreateClick = () => {
           ctx.lineTo(centerX, centerY);
           ctx.strokeStyle = "#ff0000";
           ctx.stroke();
+
+          ctx.beginPath();
+          const radius1 = 3;
+          ctx.fillStyle = 'black';
+          ctx.arc(centerX + 60 * xx7, centerY - 60 * yy7, radius1, 0, 2 * Math.PI);
+          ctx.fill();
+
           setCount(10);
         }
       }
@@ -780,13 +860,13 @@ if(count === 10){
           else if(count === 5 && enteredValue === 2.24){
             alert("You have successfully found the value.");
           }
-          else if(count === 6 && enteredValue === 2.44){
+          else if(count === 6 && enteredValue === 2.45){
             alert("You have successfully found the value.");
           }
-          else if(count === 7 && enteredValue === 2.64){
+          else if(count === 7 && enteredValue === 2.65){
             alert("You have successfully found the value.");
           }
-          else if(count === 8 && enteredValue === 2.82){
+          else if(count === 8 && enteredValue === 2.83){
             alert("You have successfully found the value.");
           }
           else if(count === 9 && enteredValue === 3){
@@ -796,7 +876,7 @@ if(count === 10){
             alert("You have successfully found the value.");
           }
           else{
-            alert("check the entered value.")
+            alert("Check the entered value.")
           }
         };
 
@@ -891,14 +971,14 @@ if(count === 10){
                               <div className='labels'>
                                 <input type='number' name='input1' className='btn' onChange={handleClick} />
                               </div>
-                            ) : (
-                              <div className='labels'><>Calculate value of √{data}.</></div>
+                            ) : (<>
+                            <div>
+                                <div className='labels' >Calculate value of √{data}.</div>
+                                {/* <br></br> */}
+                                <div className='labels' style={{margin:'5px',color:'red',fontWeight:'bold'}}> √{count} Square Root Spiral drawn.</div>
+                                </div>
+                              </>
                             )}
-                            {/* {showEnterButton ? (
-                              <div className='labels'>
-                                <button className='btn' onClick={() => setPrint(true)}>Enter</button>
-                              </div>
-                            ) : null} */}
                           </div>
                         )}
 
@@ -932,7 +1012,7 @@ if(count === 10){
                         <br></br>
                         <div>Step 3: Repeat Step 2 until you have reached the desired square root.</div>
                         <br></br>
-                        <div>Step 4: Construct a circle and record the length of the square root spiral. </div>
+                        <div>Step 4: Construct a circle and record the length of the square root. </div>
                         {/* <div>---------------</div> */}
                         <br></br>
 

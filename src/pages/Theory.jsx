@@ -61,9 +61,15 @@ const Theory = () => {
         <div style={{ fontSize: '', fontWeight: '' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>Although all of Theodorus' work has been lost, Plato put Theodorus into his dialogue Theaetetus, which tells of his work. It is assumed that Theodorus had proved that all of the square roots of non-square integers from 3 to 17 are irrational by means of the Spiral of Theodorus.
 
         Plato does not attribute the irrationality of the square root of 2 to Theodorus, because it was well known before him. Theodorus and Theaetetus split the rational numbers and irrational numbers into different categories.</div>
+        <br></br>
+        <br></br>
         
-            
+        <figure>
+            <img src='./src/components/shell.jpg' className='spiral' style={{margin:"auto"}}></img>
+            <figcaption>Existence of Square Root Spiral in Nature.</figcaption>
+        </figure>
         </div>
+        
         <br></br>
         <br></br>
         <br></br>
