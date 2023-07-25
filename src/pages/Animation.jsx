@@ -33,8 +33,10 @@ const Animation = () => {
         
         {/* <iframe style={{width:"80%" ,height:"30rem"}} src="https://www.youtube.com/embed/7WKbDyWbxGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
 
-        <iframe style={{width:"80%" ,height:"30rem"}} src="https://www.youtube.com/embed/6eskZiGQmKo" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+        <iframe style={{width:"80%" ,height:"30rem",boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9)'}}  src="https://www.youtube.com/embed/6eskZiGQmKo" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <br></br>
+        <br></br>
+        <br></br>
     </>
   );
 };

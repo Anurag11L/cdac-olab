@@ -78,26 +78,27 @@ const SquareRootSpiral = () => {
     <div>
     <br></br>
       <div className='theory'>
-      <div className='actualtheory' style={{background:'white',padding:'2%',margin:'3%',border:'2px solid darkblue'}}>
+      <div className='actualtheory' style={{background:'white',padding:'2%',margin:'3%',border:'2px solid darkblue',boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9)'}}>
+      
         <br></br>
 
-        <p style={{ fontSize: '5.5vh', fontWeight: 'bold' ,color:'black' }}>
+        <p style={{ fontSize: '5.5vh', fontWeight: 'bold' ,color:'black',textShadow:' 2px 2px 20px #000000'}}>
                 Fun Activity!!!
             </p>
-          <div style={{color:'black'}}>First lets explore "What is Square Root Spiral?"</div>
+          <div style={{color:'black',textShadow:' 2px 2px 15px #000000'}}>First lets explore "What is Square Root Spiral?"</div>
           <br></br>
-          <div style={{color:'black'}}>Can you try clicking the "Draw" button given below. </div>
+          <div style={{color:'black',textShadow:' 2px 2px 15px #000000'}}>Can you try clicking the "Draw" button given below. </div>
           <br></br>
-          <button id="drawButton" className='btn'>Draw</button>
+          <button id="drawButton" className='btn' >Draw</button>
           <br></br>
           <br></br>
-          <div style={{color:'black'}}>The structure you have drawn is how the Square <br></br>Root Spiral actually look like.</div>
+          <div style={{color:'black',textShadow:' 2px 2px 15px #000000'}}>The structure you have drawn is how the Square <br></br>Root Spiral actually look like.</div>
           <br></br>
-          <div style={{color:'black'}}>In the coming lessons we will understand the <br></br>structure and its construction in detail.</div>
+          <div style={{color:'black',textShadow:' 2px 2px 15px #000000'}}>In the coming lessons we will understand the <br></br>structure and its construction in detail.</div>
           <br></br>
         </div>
         {/* <br></br> */}
-        <canvas ref={canvasRef} width={500} height={500} className='canva' />
+        <canvas ref={canvasRef} width={500} height={500} className='canva' style={{boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9)'}} />
         
       </div>
         <p className='labels'></p>

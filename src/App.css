@@ -198,6 +198,7 @@ body {
   background-color: rgb(161, 199, 152);
   position: relative;
   border-radius: 20px;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
 
 }
 
@@ -210,6 +211,7 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   color: black;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
 }
 
 .rec-instructions{
@@ -232,6 +234,7 @@ body {
   /* box-shadow: 2px 2px 4px #ffffff; */
   background-color:  lightskyblue;
   font-weight: bolder;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .btn::before {
@@ -387,7 +390,7 @@ body {
     height: 300px;
   }
   .spiral{
-    width: 300px;
+    width: 200px;
   }
 
   
@@ -467,7 +470,7 @@ body {
     height: 400px;
   }
   .spiral{
-    width: 400px;
+    width: 300px;
   }
 }
 
@@ -556,15 +559,20 @@ body {
     font-size: 55px;
   }
   .board {
-    display: flex;
+    display: wrap;
+    /* flex-wrap: wrap; */
   }
   .square {
     height: 550px;
     width: 550px;
+    margin-right: 1%;
+    margin-left: 1%;
   }
   .rec {
     height: 670px;
     width: 450px;
+    margin-left: 1%;
+    margin-right: 1%;
   }
   .labels{
     font-size: medium;
@@ -604,10 +612,13 @@ body {
   .square {
     height: 630px;
     width: 630px;
+    margin-left: 1%;
   }
   .rec {
-    height: 670px;
-    width: 500px;
+    height: 640px;
+    width: 530px;
+    margin-left: 1%;
+    
   }
   .labels{
     font-size: medium;
@@ -621,7 +632,7 @@ body {
     height: 600px;
   }
   .spiral{
-    width: 600px;
+    width: 400px;
     /* float: right; */
     /* border: 2px solid black; */
   }

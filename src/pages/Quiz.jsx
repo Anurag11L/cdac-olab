@@ -26,7 +26,7 @@ const questions = [
     question: 'Can we use Square Root Spiral to calculate root of 4.35 ?',
     options: ['Yes', 'No'],
     answer: 'No',
-    explanation: 'Square Root Spiral provides root of only positive numbers.',
+    explanation: 'Root of 4.35 cannot be calculated using Square Root Spiral.',
     // image:'src/components/spiral.png'
 
   },
@@ -60,8 +60,9 @@ function Quiz() {
   return (
     <>
     
-    <div className="quiz" style={{padding:'2rem',border:'4px solid darkblue',borderRadius:'2rem'}}>
-    <h1 style={{width:'100%'}}>QUIZ</h1>
+    <div className="quiz" style={{padding:'2rem',border:'4px solid darkblue',borderRadius:'2rem',boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9)'
+}}>
+    <h1 style={{width:'100%',textShadow:' 2px 2px 10px #000000'}}>QUIZ</h1>
       {showScore ? 
       (
         <div className="score-section">
@@ -72,16 +73,16 @@ function Quiz() {
         <>
           {questions.map((question, index) => (
             <div className="question-section" key={index}>
-              <div className="question-count">
+              <div className="question-count" style={{textShadow:' 2px 2px 8px #000000'}}>
                 <span>Question {index + 1}</span>/{questions.length}
               </div>
 
-              <div className="question-text">{question.question}
-              {question.image && <img src={question.image} alt="Question" style={{ border:'2px solid black',width:'40vw' }} />}</div>
+              <div className="question-text" style={{textShadow:' 2px 2px 8px #000000'}}>{question.question}
+              {question.image && <img src={question.image} alt="Question" style={{ border:'2px solid black',boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.5)' }} className="spiral" />}</div>
 
               <div className="answer-section">
                 {question.options.map((option) => (
-                  <button key={option} onClick={() => handleAnswerOptionClick(index, option)} className={answers[index] === option ? 'selected' : ''} disabled={answers[index] !== ''}>
+                  <button style={{boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}} key={option} onClick={() => handleAnswerOptionClick(index, option)} className={answers[index] === option ? 'selected' : ''} disabled={answers[index] !== ''}>
                     {option}
                   </button>
                 ))}
@@ -101,7 +102,7 @@ function Quiz() {
           ))}
           
           <br></br>
-          <div className="score-section">
+          <div className="score-section" style={{textShadow:' 2px 2px 8px #000000'}}>
           You scored {calculateScore()} out of {questions.length}
         </div>
         <br></br>

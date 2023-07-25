@@ -954,7 +954,7 @@ if(count === 10){
         {/* <div className='title'>
             -SIMULATOR-
         </div> */}
-        <div style={{ color:'black',fontWeight: 'bold',}}>Objective: Construction of the Square Root Spiral.</div>
+        <div style={{ color:'black',fontWeight: 'bold',textShadow:' 2px 2px 10px #000000'}}>Objective: Construction of the Square Root Spiral.</div>
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 
@@ -1046,7 +1046,7 @@ if(count === 10){
                         <div>Instructions :</div>
                         <div>Step 1: Enter an integer between 3 and 9 of your choice in the input bar given above.</div>
                         <br></br>
-                        <div>Step 2: Place the protractor on the vertex and adjust the angle of the protractor with respect to the hypotenuse, then PRESS 'Trace'. </div>
+                        <div>Step 2:    Place the protractor on the vertex perpendicular to the previous hypotenuse, then PRESS 'Trace'. </div>
                         <br></br>
                         <div>Step 3: Repeat Step 2 until you have reached the desired square root.</div>
                         <br></br>
