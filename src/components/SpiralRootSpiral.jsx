@@ -89,7 +89,7 @@ const SquareRootSpiral = () => {
           <br></br>
           <div style={{color:'black',textShadow:' 2px 2px 15px #000000'}}>Can you try clicking the "Draw" button given below. </div>
           <br></br>
-          <button id="drawButton" className='btn' >Draw</button>
+          <button id="drawButton" className='btn' ><div style={{fontSize:'13px',color:'white'}}>Draw</div></button>
           <br></br>
           <br></br>
           <div style={{color:'black',textShadow:' 2px 2px 15px #000000'}}>The structure you have drawn is how the Square <br></br>Root Spiral actually look like.</div>

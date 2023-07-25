@@ -107,9 +107,27 @@ const Simulator = () => {
     const xAxisNumberEnd = (width - scaleIntervalX) / 2;
     const xAxisNumberInterval = 60; 
     for (let x = xAxisNumberStart; x <= xAxisNumberEnd; x += xAxisNumberInterval) {
-        context.fillText((x / scaleIntervalX).toString(), centerX + x - xAxisNumberOffset, centerY + xAxisNumberOffset);
+        context.fillText((x / scaleIntervalX).toString(), centerX + x +7- xAxisNumberOffset, centerY + xAxisNumberOffset+5);
     }
     context.lineWidth = 2;
+
+    for (let x = 18; x <= centerX; x +=6) {
+      context.font = '12px Arial'; // Adjust the font size and family as needed
+      context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
+      context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +10 );
+      }
+
+      for (let x = 18; x <= centerX; x +=60) {
+        context.font = '12px Arial'; // Adjust the font size and family as needed
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
+
+        context.beginPath();
+        // const radius1 = 3;
+        context.fillStyle = 'black';
+        context.arc(centerX + x +2- xAxisNumberOffset,  centerY , 3, 0, 2 * Math.PI);
+        context.fill();
+        }
 
     context.beginPath();
     context.moveTo(centerX + 60, centerY);
@@ -166,7 +184,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√2', centerX + 5 + 60 * x, centerY - 60 * y - 5);
 
           setCount(2);
@@ -215,7 +233,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√3', centerX -8 + 60 * xx, centerY - 60 * yy - 15);
 
           setCount(3);
@@ -263,7 +281,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√4', centerX -20 + 60 * xx1, centerY - 60 * yy1 - 15);
 
           setCount(4);
@@ -311,7 +329,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√5', centerX - 30 + 60 * xx2, centerY - 60 * yy2 - 5);
 
         setCount(5);
@@ -359,7 +377,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√6', centerX -30 + 60 * xx3, centerY - 60 * yy3 + 5);
 
           setCount(6);
@@ -407,7 +425,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√7', centerX -30 + 60 * xx4, centerY - 60 * yy4 + 10);
 
           setCount(7);
@@ -456,7 +474,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√8', centerX -30 + 60 * xx5, centerY - 60 * yy5 + 15);
 
           setCount(8);
@@ -504,7 +522,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√9', centerX -30 + 60 * xx6, centerY - 60 * yy6 + 15);
 
           setCount(9);
@@ -552,7 +570,7 @@ const handleCreateClick = () => {
           ctx.fill();
 
           ctx.fillStyle = 'darkblue';
-          ctx.font = '5px ';
+          ctx.font = '20px Arial';
           ctx.fillText('√10', centerX + 5 + 60 * xx7, centerY - 60 * yy7 - 5);
 
           setCount(10);
@@ -590,8 +608,8 @@ const handleCircle = () => {
 
         // Draw text for line length above the line
         ctx.font = '20px Arial';
-        ctx.fillStyle = "#A629C2";
-        ctx.fillText(`${Math.sqrt(1).toFixed(2)}`, (centerX +330) / 2, (centerY +290)/2);
+        ctx.fillStyle = "#2E0B36";
+        ctx.fillText(`${Math.sqrt(1).toFixed(1)}`, (centerX +330) / 2, (centerY +290)/2);
         
         setDataValue( Math.sqrt(1).toFixed(2));
         setShowInputField(!showInputField);
@@ -616,8 +634,8 @@ const handleCircle = () => {
 
         // Draw text for line length above the line
         ctx.font = '20px Arial';
-        ctx.fillStyle = "#A629C2";
-        ctx.fillText(`${Math.sqrt(2).toFixed(2)}`, (centerX +340) / 2, (centerY +290)/2);
+        ctx.fillStyle = "#2E0B36";
+        ctx.fillText(`${Math.sqrt(2).toFixed(1)}`, (centerX +340) / 2, (centerY +290)/2);
         setDataValue( Math.sqrt(2).toFixed(2));
         setShowInputField(!showInputField);
       }
@@ -641,8 +659,8 @@ const handleCircle = () => {
 
         // Draw text for line length above the line
         ctx.font = '20px Arial';
-        ctx.fillStyle = "#A629C2";
-        ctx.fillText(`${Math.sqrt(3).toFixed(2)}`, (centerX +350) / 2, (centerY +290)/2);
+        ctx.fillStyle = "#2E0B36";
+        ctx.fillText(`${Math.sqrt(3).toFixed(1)}`, (centerX +350) / 2, (centerY +290)/2);
         // ctx.fillText('2', (centerX +330) / 2, (centerY +290)/2);
         setDataValue( Math.sqrt(3).toFixed(2));
         setShowInputField(!showInputField);
@@ -667,8 +685,8 @@ const handleCircle = () => {
 
       // Draw text for line length above the line
       ctx.font = '20px Arial';
-      ctx.fillStyle = "#A629C2";
-      ctx.fillText(`${Math.sqrt(4).toFixed(2)}`, (centerX +390) / 2, (centerY +290)/2);
+      ctx.fillStyle = "#2E0B36";
+      ctx.fillText(`${Math.sqrt(4).toFixed(1)}`, (centerX +390) / 2, (centerY +290)/2);
       setDataValue( Math.sqrt(4).toFixed(2));
       setShowInputField(!showInputField);
     }
@@ -692,8 +710,8 @@ if(count === 5){
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
-    ctx.fillStyle = "#A629C2";
-    ctx.fillText(`${Math.sqrt(5).toFixed(2)}`, (centerX +400) / 2, (centerY +290)/2);
+    ctx.fillStyle = "#2E0B36";
+    ctx.fillText(`${Math.sqrt(5).toFixed(1)}`, (centerX +400) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(5).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -717,8 +735,8 @@ if(count === 6){
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
-    ctx.fillStyle = "#A629C2";
-    ctx.fillText(`${Math.sqrt(6).toFixed(2)}`, (centerX +420) / 2, (centerY +290)/2);
+    ctx.fillStyle = "#2E0B36";
+    ctx.fillText(`${Math.sqrt(6).toFixed(1)}`, (centerX +420) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(6).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -742,8 +760,8 @@ if(count === 7){
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
-    ctx.fillStyle = "#A629C2";
-    ctx.fillText(`${Math.sqrt(7).toFixed(2)}`, (centerX +450) / 2, (centerY +290)/2);
+    ctx.fillStyle = "#2E0B36";
+    ctx.fillText(`${Math.sqrt(7).toFixed(1)}`, (centerX +450) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(7).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -767,8 +785,8 @@ if(count === 8){
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
-    ctx.fillStyle = "#A629C2";
-    ctx.fillText(`${Math.sqrt(8).toFixed(2)}`, (centerX +470) / 2, (centerY +290)/2);
+    ctx.fillStyle = "#2E0B36";
+    ctx.fillText(`${Math.sqrt(8).toFixed(1)}`, (centerX +470) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(8).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -792,8 +810,8 @@ if(count === 9){
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
-    ctx.fillStyle = "#A629C2";
-    ctx.fillText(`${Math.sqrt(9).toFixed(2)}`, (centerX +510) / 2, (centerY +290)/2);
+    ctx.fillStyle = "#2E0B36";
+    ctx.fillText(`${Math.sqrt(9).toFixed(1)}`, (centerX +510) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(9).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -817,7 +835,7 @@ if(count === 10){
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
-    ctx.fillStyle = "#A629C2";
+    ctx.fillStyle = "#2E0B36";
     ctx.fillText(`${Math.sqrt(10).toFixed(2)}`, (centerX +540) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(10).toFixed(2));
     setShowInputField(!showInputField);
@@ -1032,13 +1050,26 @@ if(count === 10){
                         {/* <img src='./src/components/diagram1.png' className='diagram'></img><br></br> */}
 
                         <div className='bindnew'>
-                            {showErrorModal ?null :(<button className='btn' onClick={rotateByTenDegrees}>Rotate by 10°</button>)}
-                            {showErrorModal ?null :(<button className='btn' onClick={rotateByOneDegrees}>Rotate by 1°</button>)}
-                            <div className='bindnew'>
-                            {showErrorModal ?null :(<button className='btn' onClick={handleCreateClick}>Trace</button>)}
-                            {showErrorModal ?null :(<button className='btn' onClick={handleCircle}>Circle</button>)}
-                            </div>
+                            {showErrorModal ?null :(<button className='btn' onClick={rotateByTenDegrees}><div className='btndiv'>Rotate by 10°</div></button>)}
+                            {showErrorModal ?null :(<button className='btn' onClick={rotateByOneDegrees}><div className='btndiv'>Rotate by 1°</div></button>)}
+                            {/* <div className='bindnew'> */}
+                            {showErrorModal ?null :(<button className='btn' onClick={handleCreateClick}><div className='btndiv'>Trace</div></button>)}
+                            {showErrorModal ?null :(<button className='btn' onClick={handleCircle}><div className='btndiv'>Circle</div></button>)}
+                            {/* </div> */}
                         </div>
+                        <br></br>
+                        {showInputField && (
+                        <div>
+                        {/* <br></br> */}
+                        <div ><b>Enter your calculated value as shown on the graph.</b></div>
+                          <input
+                            type="number"
+                            placeholder="Enter the value."
+                            ref={circleInputRef}
+                          />
+                          <button className='btn' onClick={submit}><div className='btndiv'>Submit</div></button>
+                        </div>
+                      )}
 
                         <br></br>
 
@@ -1056,18 +1087,7 @@ if(count === 10){
 
                         </div>
 
-                        {showInputField && (
-                        <div>
-                        {/* <br></br> */}
-                        <div ><b>Enter your calculated value as shown on the graph.</b></div>
-                          <input
-                            type="number"
-                            placeholder="Enter the value."
-                            ref={circleInputRef}
-                          />
-                          <button className='btn' onClick={submit}>Submit</button>
-                        </div>
-                      )}
+                        
                         {/* <p className='labels'>Protrator is rotated by angle: {angle}°</p> */}
                     
                     </div>
