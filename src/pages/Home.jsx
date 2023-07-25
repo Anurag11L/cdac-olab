@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
     <br></br>
-    <header>
+        <header>
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>
                 <nav className='navbar'>
@@ -33,21 +33,40 @@ const Home = () => {
         </div> */}
         <SquareRootSpiral />
         <div className='theory' style={{background:'white',padding:'2%',border:'2px solid darkblue',color:'black',width:'90%',margin:'auto'}}>
-        
-            <div >In geometry, the spiral of Theodorus also called square root spiral, Spiral of Einstein, Pythagorean spiral, or Pythagoras's snail is a spiral composed of right triangles, placed edge-to-edge. It was named after Theodorus of Cyrene.<br></br>
-            <p style={{ fontSize: '30px', fontWeight: 'bold' }}>Construction</p>
-            The spiral is started with an isosceles right triangle, with each leg having unit length. Another right triangle is formed, an automedian right triangle with one leg being the hypotenuse of the prior triangle (with length the square root of 2) and the other leg having length of 1; the length of the hypotenuse of this second triangle is the square root of 3. The process then repeats; the nth triangle in the sequence is a right triangle with the side lengths √ n and 1, and with hypotenuse √n+1. For example, the 16th triangle has sides measuring 4=√16 , 1 and hypotenuse of √17.
-            </div>
-            <img src='./src/components/spiral.png' className='spiral'></img>
-        {/* </div> */}
-        {/* <div style={{color:'black'}}> */}
-            <p style={{ fontSize: '5vh', fontWeight: 'bold' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>
-                History and Uses
-            </p>
-            <div style={{ fontSize: '', fontWeight: '' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>Although all of Theodorus' work has been lost, Plato put Theodorus into his dialogue Theaetetus, which tells of his work. It is assumed that Theodorus had proved that all of the square roots of non-square integers from 3 to 17 are irrational by means of the Spiral of Theodorus.
 
-            Plato does not attribute the irrationality of the square root of 2 to Theodorus, because it was well known before him. Theodorus and Theaetetus split the rational numbers and irrational numbers into different categories.</div>
+        <div style={{ fontSize: '5vh', fontWeight: 'bold' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>
+            Introduction
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        
+        <div style={{ fontSize: '', fontWeight: '' ,textAlign:'left',marginLeft:'0px',width:'100%'}} >The spiral of Theodorus, also known as the square root spiral, Spiral of Einstein, Pythagorean spiral, or Pythagoras's snail, is a unique geometric construction. It consists of a sequence of right triangles arranged in a spiral formation, with each triangle sharing one side with the previous one. This captivating spiral is attributed to its namesake, Theodorus of Cyrene.
+        </div>
+        <br></br>
+
+
+        <p style={{ fontSize: '5vh', fontWeight: 'bold' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>Construction</p>
+
+        <div style={{ fontSize: '', fontWeight: '' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>To draw a square root spiral, start with a point as the origin. Draw a right-angled triangle with sides of length 1, √2, and 1, then rotate it 90 degrees. Attach the hypotenuse's end to the previous triangle's right-angle vertex to form a new triangle. Repeat this process, increasing the length of the hypotenuse by √3, √4, √5, and so on. Continue adding triangles to create a smooth spiral. Each triangle represents a square root of a natural number. As the sequence grows, the spiral expands outward, forming the mesmerizing Square Root Spiral.
+        </div>
+        <br></br>
+        <img src='./src/components/spiral.png' className='spiral'></img>
+
+
+        <p style={{ fontSize: '5vh', fontWeight: 'bold' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>
+            History and Uses
+        </p>
+        <div style={{ fontSize: '', fontWeight: '' ,textAlign:'left',marginLeft:'0px',width:'100%'}}>Despite the loss of Theodorus' original works, his contributions were mentioned in Plato's dialogue "Theaetetus." This dialogue describes Theodorus' work, suggesting that he demonstrated the irrationality of square roots for non-square integers between 3 and 17 using the Spiral of Theodorus. Notably, Theodorus' method did not include the proof of the irrationality of √2, as it was already known. Theodorus and Theaetetus classified rational and irrational numbers into distinct categories, further emphasizing their pioneering exploration of number theory. Their work laid the foundation for later advancements in understanding the nature of numbers and their properties.</div>
+        <br></br>
+        <br></br>
+        
+        <figure>
+            <img src='./src/components/shell.jpg' className='spiral' style={{margin:"auto"}}></img>
+            <figcaption>Existence of Square Root Spiral in Nature.</figcaption>
+        </figure>
+        </div>
+        
         <br></br>
         <br></br>
         <br></br>

@@ -1,6 +1,4 @@
 import React from 'react';
-// import Header from '../components/Header';
-// import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import SquareRootSpiral from '../components/SpiralRootSpiral';
 

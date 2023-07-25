@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import '../components/Quiz.css'
 
 const questions = [
   {

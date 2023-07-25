@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LineCanvas from '../components/lineCanvas';
 
 const Reference = () => {
     
