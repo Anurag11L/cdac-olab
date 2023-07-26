@@ -98,7 +98,7 @@ const Simulator = () => {
   
     // Draw the center axis labels
     const labelOffset = -20; // Offset of the labels from the center scales
-    context.fillText('X', centerX + centerScaleLength + labelOffset, centerY - labelOffset);
+    context.fillText('X', centerX + centerScaleLength + labelOffset, centerY - labelOffset+10);
     context.fillText('Y', centerX - labelOffset, centerY - centerScaleLength - labelOffset);
   
     // Number the x-axis
@@ -111,23 +111,37 @@ const Simulator = () => {
     }
     context.lineWidth = 2;
 
-    for (let x = 18; x <= centerX; x +=6) {
+    for (let x = 18.5; x <= centerX; x +=6) {
       context.font = '12px Arial'; // Adjust the font size and family as needed
       context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
-      context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +10 );
+      context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
+      context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
+      context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
       }
 
-      for (let x = 18; x <= centerX; x +=60) {
+      for (let x = 18.5; x <= centerX; x +=60) {
         context.font = '12px Arial'; // Adjust the font size and family as needed
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
+      }
 
+      for (let x = 48.5; x <= centerX; x +=60) {
+        context.font = '12px Arial'; // Adjust the font size and family as needed
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
+        context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
+      }
+
+      for (let x = 18; x <= centerX; x +=60) {
         context.beginPath();
         // const radius1 = 3;
         context.fillStyle = 'black';
         context.arc(centerX + x +2- xAxisNumberOffset,  centerY , 3, 0, 2 * Math.PI);
         context.fill();
-        }
+      }
 
     context.beginPath();
     context.moveTo(centerX + 60, centerY);
@@ -595,7 +609,7 @@ const handleCircle = () => {
         const radius = 60;
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = "#0000ff";
+        ctx.strokeStyle = "red";
         ctx.stroke();
         ctx.closePath();
 
@@ -609,7 +623,7 @@ const handleCircle = () => {
         // Draw text for line length above the line
         ctx.font = '20px Arial';
         ctx.fillStyle = "#2E0B36";
-        ctx.fillText(`${Math.sqrt(1).toFixed(1)}`, (centerX +330) / 2, (centerY +290)/2);
+        // ctx.fillText(`${Math.sqrt(1).toFixed(2)}`, (centerX +330) / 2, (centerY +290)/2);
         
         setDataValue( Math.sqrt(1).toFixed(2));
         setShowInputField(!showInputField);
@@ -621,21 +635,21 @@ const handleCircle = () => {
         const radius = 60 * Math.sqrt(2);
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = "#0000ff";
+        ctx.strokeStyle = "red";
         ctx.stroke();
         ctx.closePath();
 
         ctx.beginPath();
         ctx.moveTo(centerX +(60 * Math.sqrt(2)), centerY );
         ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "ff0000";
+        ctx.strokeStyle = "#ff0000";
         ctx.stroke();
         ctx.closePath();
 
         // Draw text for line length above the line
         ctx.font = '20px Arial';
         ctx.fillStyle = "#2E0B36";
-        ctx.fillText(`${Math.sqrt(2).toFixed(1)}`, (centerX +340) / 2, (centerY +290)/2);
+        // ctx.fillText(`${Math.sqrt(2).toFixed(2)}`, (centerX +340) / 2, (centerY +290)/2);
         setDataValue( Math.sqrt(2).toFixed(2));
         setShowInputField(!showInputField);
       }
@@ -646,21 +660,21 @@ const handleCircle = () => {
         const radius = 60 * Math.sqrt(3);
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = "#0000ff";
+        ctx.strokeStyle = "red";
         ctx.stroke();
         ctx.closePath();
 
         ctx.beginPath();
         ctx.moveTo(centerX +(60 * Math.sqrt(3)), centerY );
         ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = "ff0000";
+        ctx.strokeStyle = "red";
         ctx.stroke();
         ctx.closePath();
 
         // Draw text for line length above the line
         ctx.font = '20px Arial';
         ctx.fillStyle = "#2E0B36";
-        ctx.fillText(`${Math.sqrt(3).toFixed(1)}`, (centerX +350) / 2, (centerY +290)/2);
+        // ctx.fillText(`${Math.sqrt(3).toFixed(2)}`, (centerX +350) / 2, (centerY +290)/2);
         // ctx.fillText('2', (centerX +330) / 2, (centerY +290)/2);
         setDataValue( Math.sqrt(3).toFixed(2));
         setShowInputField(!showInputField);
@@ -672,21 +686,21 @@ const handleCircle = () => {
       const radius = 60 * Math.sqrt(4);
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-      ctx.strokeStyle = "#0000ff";
+      ctx.strokeStyle = "red";
       ctx.stroke();
       ctx.closePath();
 
       ctx.beginPath();
       ctx.moveTo(centerX +(60 * Math.sqrt(4)), centerY );
       ctx.lineTo(centerX, centerY);
-      ctx.strokeStyle = "ff0000";
+      ctx.strokeStyle = "red";
       ctx.stroke();
       ctx.closePath();
 
       // Draw text for line length above the line
       ctx.font = '20px Arial';
       ctx.fillStyle = "#2E0B36";
-      ctx.fillText(`${Math.sqrt(4).toFixed(1)}`, (centerX +390) / 2, (centerY +290)/2);
+      // ctx.fillText(`${Math.sqrt(4).toFixed(2)}`, (centerX +390) / 2, (centerY +290)/2);
       setDataValue( Math.sqrt(4).toFixed(2));
       setShowInputField(!showInputField);
     }
@@ -697,21 +711,21 @@ if(count === 5){
     const radius = 60 * Math.sqrt(5);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.moveTo(centerX +(60 * Math.sqrt(5)), centerY );
     ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
     ctx.fillStyle = "#2E0B36";
-    ctx.fillText(`${Math.sqrt(5).toFixed(1)}`, (centerX +400) / 2, (centerY +290)/2);
+    // ctx.fillText(`${Math.sqrt(5).toFixed(2)}`, (centerX +400) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(5).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -722,21 +736,21 @@ if(count === 6){
     const radius = 60 * Math.sqrt(6);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.moveTo(centerX +(60 * Math.sqrt(6)), centerY );
     ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
     ctx.fillStyle = "#2E0B36";
-    ctx.fillText(`${Math.sqrt(6).toFixed(1)}`, (centerX +420) / 2, (centerY +290)/2);
+    // ctx.fillText(`${Math.sqrt(6).toFixed(2)}`, (centerX +420) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(6).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -747,21 +761,21 @@ if(count === 7){
     const radius = 60 * Math.sqrt(7);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.moveTo(centerX +(60 * Math.sqrt(7)), centerY );
     ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
     ctx.fillStyle = "#2E0B36";
-    ctx.fillText(`${Math.sqrt(7).toFixed(1)}`, (centerX +450) / 2, (centerY +290)/2);
+    // ctx.fillText(`${Math.sqrt(7).toFixed(2)}`, (centerX +450) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(7).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -772,21 +786,21 @@ if(count === 8){
     const radius = 60 * Math.sqrt(8);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.moveTo(centerX +(60 * Math.sqrt(8)), centerY );
     ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
     ctx.fillStyle = "#2E0B36";
-    ctx.fillText(`${Math.sqrt(8).toFixed(1)}`, (centerX +470) / 2, (centerY +290)/2);
+    // ctx.fillText(`${Math.sqrt(8).toFixed(2)}`, (centerX +470) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(8).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -797,21 +811,21 @@ if(count === 9){
     const radius = 60 * Math.sqrt(9);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.moveTo(centerX +(60 * Math.sqrt(9)), centerY );
     ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     // Draw text for line length above the line
     ctx.font = '20px Arial';
     ctx.fillStyle = "#2E0B36";
-    ctx.fillText(`${Math.sqrt(9).toFixed(1)}`, (centerX +510) / 2, (centerY +290)/2);
+    // ctx.fillText(`${Math.sqrt(9).toFixed(2)}`, (centerX +510) / 2, (centerY +290)/2);
     setDataValue( Math.sqrt(9).toFixed(2));
     setShowInputField(!showInputField);
   }
@@ -822,14 +836,14 @@ if(count === 10){
     const radius = 60 * Math.sqrt(10);
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = "#0000ff";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
     ctx.beginPath();
     ctx.moveTo(centerX +(60 * Math.sqrt(10)), centerY );
     ctx.lineTo(centerX, centerY);
-    ctx.strokeStyle = "ff0000";
+    ctx.strokeStyle = "red";
     ctx.stroke();
     ctx.closePath();
 
@@ -907,29 +921,29 @@ if(count === 10){
           
           console.log(dataValue);
 
-          if (count === 3 && enteredValue === 1.73) {
-            alert("You have successfully found the value."); // Show "Thank You" message in a pop-up
+          if (count === 3 && (enteredValue >= 1.7 && enteredValue <= 1.75)) {
+            alert("You have successfully found the value.🎉"); // Show "Thank You" message in a pop-up
           }
           else if(count === 4 && enteredValue === 2){
-            alert("You have successfully found the value.");
+            alert("You have successfully found the value.🎉");
           }
-          else if(count === 5 && enteredValue === 2.24){
-            alert("You have successfully found the value.");
+          else if(count === 5 && (enteredValue >= 2.2 && enteredValue <= 2.25)){
+            alert("🎉YOU HAVE SUCCESSFULLY FOUND THE VALUE.🎉");
           }
-          else if(count === 6 && enteredValue === 2.45){
-            alert("You have successfully found the value.");
+          else if(count === 6 && (enteredValue >= 2.43 && enteredValue <= 2.47)){
+            alert("You have successfully found the value.🎉");
           }
-          else if(count === 7 && enteredValue === 2.65){
-            alert("You have successfully found the value.");
+          else if(count === 7 && (enteredValue >= 2.63 && enteredValue <= 2.67)){
+            alert("You have successfully found the value.🎉");
           }
-          else if(count === 8 && enteredValue === 2.83){
-            alert("You have successfully found the value.");
+          else if(count === 8 && (enteredValue >= 2.8 && enteredValue <= 2.85)){
+            alert("You have successfully found the value.🎉");
           }
           else if(count === 9 && enteredValue === 3){
-            alert("You have successfully found the value.");
+            alert("You have successfully found the value.🎉");
           }
-          else if(count === 10 && enteredValue === 3.16){
-            alert("You have successfully found the value.");
+          else if(count === 10 && enteredValue === 3.16 (enteredValue >= 3.14 && enteredValue <= 3.18)){
+            alert("You have successfully found the value.🎉");
           }
           else{
             alert("Check the entered value.")
@@ -1016,7 +1030,7 @@ if(count === 10){
                     {/* <div className='labels'> Try calculating the hypotenious you found.</div> */}
                     
                         {/* <div className='labels'><div className='labels'>Considering side <i>a</i> to be always 1.</div></div> */}
-                        <div className='labels'><div className='labels'>Till which Square Root value do you want to draw?</div></div>
+                        <div className='labels'><div className='labels' style={{fontWeight:'bold'}}>Till which Square Root value do you want to draw?</div></div>
 
                         {/* {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)} */}
                         <br></br>
@@ -1045,7 +1059,7 @@ if(count === 10){
                         <br></br>
                         {/* <br></br> */}
 
-                        <div ><div className='labels'> Controls :</div></div>
+                        <div ><div className='labels' style={{fontWeight:'bold'}}> Controls :</div></div>
 
                         {/* <img src='./src/components/diagram1.png' className='diagram'></img><br></br> */}
 
@@ -1074,14 +1088,14 @@ if(count === 10){
                         <br></br>
 
                         <div className='rec-instructions'>
-                        <div>Instructions :</div>
-                        <div>Step 1: Enter an integer between 3 and 9 of your choice in the input bar given above.</div>
-                        <br></br>
-                        <div>Step 2:    Place the protractor on the vertex perpendicular to the previous hypotenuse, then PRESS 'Trace'. </div>
-                        <br></br>
-                        <div>Step 3: Repeat Step 2 until you have reached the desired square root.</div>
-                        <br></br>
-                        <div>Step 4: Construct a circle and record the length of the square root. </div>
+                        <div className='labels' style={{fontWeight:'bold'}}>Instructions :</div>
+                        <div style={{marginBottom:'1%'}}>Step 1: Enter an integer between 3 and 9 of your choice in the input bar given above.</div>
+                        {/* <br></br> */}
+                        <div style={{marginBottom:'1%'}}>Step 2:    Place the protractor on the vertex perpendicular to the previous hypotenuse, then PRESS 'Trace'. </div>
+                        {/* <br></br> */}
+                        <div style={{marginBottom:'1%'}}>Step 3: Repeat Step 2 until you have reached the desired square root.</div>
+                        {/* <br></br> */}
+                        <div style={{marginBottom:'1%'}}>Step 4: Construct a circle and record the length of the square root. </div>
                         {/* <div>---------------</div> */}
                         <br></br>
 

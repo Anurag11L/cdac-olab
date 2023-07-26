@@ -365,6 +365,11 @@ body {
   color: black;
 }
 
+.utube{
+  width: 90%;
+  height: auto;
+}
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -456,6 +461,11 @@ body {
     margin-right: 2%;
     color: black;
   }
+
+  .utube{
+    width: 80%;
+    height: 150px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -486,6 +496,11 @@ body {
   }
   .spiral{
     width: 300px;
+  }
+
+  .utube{
+    width: 80%;
+    height: 250px;
   }
 }
 
@@ -519,6 +534,11 @@ body {
   }
   .spiral{
     width: 500px;
+  }
+
+  .utube{
+    width: 70%;
+    height: 300px;
   }
 }
 
@@ -566,6 +586,11 @@ body {
     margin-left: 2%;
     margin-right: 2%;
     color:black;
+  }
+
+  .utube{
+    width: 70%;
+    height: 330px;
   }
 }
 
@@ -618,6 +643,11 @@ body {
     border: 1px solid white;
     color: black;
   }
+
+  .utube{
+    width: 60%;
+    height: 400px;
+  }
 }
 
 @media only screen and (min-width: 1441px) {
@@ -663,6 +693,10 @@ body {
     color: black;
   }
   
+  .utube{
+    width: 60%;
+    height: 500px;
+  }
 }
 
 @media only screen and (min-width: 2560px) {
@@ -703,6 +737,11 @@ body {
     /* margin-left: 10%;
     margin-right: 2%; */
     color: black;
+  }
+
+  .utube{
+    width: 60%;
+    height: 700px;
   }
 
 }
