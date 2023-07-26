@@ -89,14 +89,14 @@ function Quiz() {
               </div>
 
               {answers[index] !== '' && (
-                <div className="explanation">
-                  <div className="correct-answer">Correct answer: {question.answer}</div>
-                  <div className="explanation-text">Explanation: {question.explanation}</div>
-                  {question.image && (
-                    <div className="explanation-image">
-                    </div>
-                  )}
-                </div>
+                  <div className="explanation">
+                      <div className="correct-answer">Correct answer: {question.answer}</div>
+                      <div className="explanation-text">Explanation: {question.explanation}</div>
+                      {question.image && (
+                        <div className="explanation-image">
+                        </div>
+                      )}
+                  </div>
               )}
             </div>
           ))}

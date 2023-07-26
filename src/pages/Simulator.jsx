@@ -1057,21 +1057,22 @@ return (
                         </div>
                         <br></br>
                         {showInputField && (
-                        <div>
-                        {/* <br></br> */}
-                        <div ><b>Enter your calculated value as shown on the graph.</b></div>
+                            <div>
+                            {/* <br></br> */}
+                                <div ><b>Enter your calculated value as shown on the graph.</b></div>
 
-                          <input type="number" placeholder="Enter the value." ref={circleInputRef} />
+                                <input type="number" placeholder="Enter the value." ref={circleInputRef} />
 
-                          <button className='btn' onClick={submit}><div className='btndiv'>Submit</div></button>
+                                <button className='btn' onClick={submit}><div className='btndiv'>Submit</div></button>
 
-                        </div>
+                            </div>
                       )}
 
                         <br></br>
 
                         <div className='rec-instructions'>
                             <div className='labels' style={{fontWeight:'bold'}}>Instructions :</div>
+                            
                             <div style={{marginBottom:'1%'}}>Step 1: Enter an integer between 3 and 9 of your choice in the input bar given above.</div>
                             {/* <br></br> */}
                             <div style={{marginBottom:'1%'}}>Step 2: Place the protractor on the vertex perpendicular to the previous hypotenuse, then PRESS 'Trace'. </div>

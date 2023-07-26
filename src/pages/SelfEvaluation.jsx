@@ -27,9 +27,7 @@ const SelfEvaluation = () => {
                 </nav>
             </div>
         </header>
-        {/* <div className='title'>
-            Quiz
-        </div> */}
+
         <Quiz></Quiz>
     </>
   )
