@@ -62,7 +62,7 @@ function Quiz() {
     
     <div className="quiz" style={{padding:'2rem',border:'4px solid darkblue',borderRadius:'2rem',boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9)'
 }}>
-    <h1 style={{width:'100%',textShadow:' 2px 2px 10px #000000'}}>QUIZ</h1>
+    <h1 style={{width:'100%',textShadow:' 2px 2px 50px #000000'}}>QUIZ</h1>
       {showScore ? 
       (
         <div className="score-section">
@@ -73,11 +73,11 @@ function Quiz() {
         <>
           {questions.map((question, index) => (
             <div className="question-section" key={index}>
-              <div className="question-count" style={{textShadow:' 2px 2px 8px #000000'}}>
+              <div className="question-count" style={{textShadow:' 2px 2px 30px #000000'}}>
                 <span>Question {index + 1}</span>/{questions.length}
               </div>
 
-              <div className="question-text" style={{textShadow:' 2px 2px 8px #000000'}}>{question.question}
+              <div className="question-text" style={{textShadow:' 2px 2px 20px #000000'}}>{question.question}
               {question.image && <img src={question.image} alt="Question" style={{ border:'2px solid black',boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.5)' }} className="spiral" />}</div>
 
               <div className="answer-section">
@@ -102,7 +102,7 @@ function Quiz() {
           ))}
           
           <br></br>
-          <div className="score-section" style={{textShadow:' 2px 2px 8px #000000'}}>
+          <div className="score-section" style={{textShadow:' 2px 2px 15px #000000'}}>
           You scored {calculateScore()} out of {questions.length}
         </div>
         <br></br>
