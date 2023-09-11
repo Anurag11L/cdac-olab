@@ -16,7 +16,7 @@ const questions = [
 
   },
   {
-    question: ' What is the length of OC ? ',
+    question: 'Given below is a sample diagram of a Square Root Spiral. Determine the length of OC ? ',
     options: ['√7', '√2','√4','√5'],
     answer: '√4',
     explanation: ' The length of OC is √4.',
@@ -61,8 +61,9 @@ function Quiz() {
     <>
     
     <div className="quiz" style={{padding:'2rem',border:'4px solid darkblue',borderRadius:'2rem',boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.9)'
-}}>
+    }}>
     <h1 style={{width:'100%',textShadow:' 2px 2px 50px #000000'}}>QUIZ</h1>
+
       {showScore ? 
       (
         <div className="score-section">

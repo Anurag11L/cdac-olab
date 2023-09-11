@@ -1023,7 +1023,7 @@ return (
                             <div className='bindnew'>
                                 {showEnterButton ? (
                                       <div className='labels'>
-                                          <input type='number' name='input1' className='btn' onChange={handleClick} />
+                                          <input type='number' name='input1' className='btn' style={{backgroundColor:"lightblue"}} onChange={handleClick}  />
                                       </div>
                                 ) : (<>
                                       <div>

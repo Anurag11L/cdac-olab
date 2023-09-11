@@ -30,7 +30,11 @@ const Reference = () => {
             -REFERENCE-
         </div> */}
         {/* <LineCanvas></LineCanvas> */}
-        <div style={{background:'white',padding:'2%',border:'4px solid darkblue',color:'black',width:'90%',margin:'auto',borderRadius:'1rem',textAlign:'left'}}>• https://ncert.nic.in/textbook/pdf/iemh101.pdf <br></br>• https://ncert.nic.in/textbook.php?jemh1=1-15<br></br>• <a href='https://ncert.nic.in/textbook.php?jemh1=1-15'>NCERT 10th Mathematics Textbook</a></div>
+        <div style={{background:'white',padding:'2%',border:'4px solid darkblue',color:'black',width:'90%',margin:'auto',borderRadius:'1rem',textAlign:'left'}}>
+        {/* • https://ncert.nic.in/textbook/pdf/iemh101.pdf <br></br> */}
+        • <a href='https://ncert.nic.in/textbook/pdf/iemh101.pdf'>NCERT Number System</a> <br></br>
+        {/* • https://ncert.nic.in/textbook.php?jemh1=1-15<br></br> */}
+        • <a href='https://ncert.nic.in/textbook.php?jemh1=1-15'>NCERT 10th Mathematics Textbook</a></div>
         
     </>
   )
