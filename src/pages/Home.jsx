@@ -12,11 +12,6 @@ const Home = () => {
             <div>
                 <a href='/theory' className='logo'>Square Root Spiral</a>
                 <nav className='navbar'>
-                    {/* <a href='#' className='toggle-button'>
-                        <span className='bar'></span>
-                        <span className='bar'></span>
-                        <span className='bar'></span>
-                    </a> */}
                     <ul className='menu'>
                             <NavLink to="/theory" className="nava"><div className='linktitle'>Theory</div></NavLink>
                             <NavLink to="/animation" className="nava"><div className='linktitle'>Animation</div></NavLink>
@@ -28,9 +23,6 @@ const Home = () => {
                 </nav>
             </div>
         </header>
-        {/* <div className='title'>
-            -THEORY-
-        </div> */}
         <SquareRootSpiral />
         <div className='theory' style={{background:'white',padding:'2%',border:'2px solid darkblue',color:'black',width:'90%',margin:'auto',textShadow:' 2px 2px 30px #000000'}}>
 

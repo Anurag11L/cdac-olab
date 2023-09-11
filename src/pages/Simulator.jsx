@@ -13,7 +13,6 @@ const Simulator = () => {
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [dataValue, setDataValue] = useState(0);
 
-  // Add this state variable at the top of the component, along with other state variables
   const [showEnterButton, setShowEnterButton] = useState(true);
 
   const circleInputRef = useRef(null);
@@ -98,7 +97,7 @@ const Simulator = () => {
     context.stroke();
   
     // Draw the center axis labels
-    const labelOffset = -20; // Offset of the labels from the center scales
+    const labelOffset = -20; 
     context.fillText('X', centerX + centerScaleLength + labelOffset, centerY - labelOffset+10);
     context.fillText('Y', centerX - labelOffset, centerY - centerScaleLength - labelOffset);
   
@@ -113,7 +112,7 @@ const Simulator = () => {
     context.lineWidth = 2;
 
     for (let x = 18.5; x <= centerX; x +=6) {
-        context.font = '12px Arial'; // Adjust the font size and family as needed
+        context.font = '12px Arial'; 
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +8 );
@@ -121,7 +120,7 @@ const Simulator = () => {
     }
 
     for (let x = 18.5; x <= centerX; x +=60) {
-        context.font = '12px Arial'; // Adjust the font size and family as needed
+        context.font = '12px Arial'; 
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +19 );
@@ -129,7 +128,7 @@ const Simulator = () => {
     }
 
     for (let x = 48.5; x <= centerX; x +=60) {
-        context.font = '12px Arial'; // Adjust the font size and family as needed
+        context.font = '12px Arial'; 
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
         context.fillText('|',  centerX + x - xAxisNumberOffset,  centerY +13 );
@@ -883,8 +882,8 @@ const Simulator = () => {
         // Error Modal Styles----------------------//
         const modalStyles = {
             overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)", },
-            content: {  backgroundColor: "transparent", // Transparent background
-                        border: "none", // No border
+            content: {  backgroundColor: "transparent", 
+                        border: "none", 
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
@@ -907,7 +906,7 @@ const Simulator = () => {
             // console.log(dataValue);
 
             if (count === 3 && (enteredValue >= 1.7 && enteredValue <= 1.75)) {
-                alert("You have successfully found the value.🎉"); // Show "Thank You" message in a pop-up
+                alert("You have successfully found the value.🎉"); 
             }
             else if(count === 4 && enteredValue === 2){
                 alert("You have successfully found the value.🎉");
@@ -940,16 +939,10 @@ return (
     <>
     <br></br>
 {/* Header--------------------------------------------------------------------------------------------------------------------------*/}
-{/* Header--------------------------------------------------------------------------------------------------------------------------*/}
         <header>
                 <div>
                     <a href='/theory' className='logo' >Square Root Spiral</a>
                     <nav className='navbar'>
-                        {/* <a href='#' className='toggle-button'>
-                            <span className='bar'></span>
-                            <span className='bar'></span>
-                            <span className='bar'></span>
-                        </a> */}
                         <ul className='menu' >
                             <NavLink to="/theory" className="nava"><div className='linktitle'>Theory</div></NavLink>
                             <NavLink to="/animation" className="nava"><div className='linktitle'>Animation</div></NavLink>
@@ -962,23 +955,18 @@ return (
                 </div>
         </header>
 {/* Header--------------------------------------------------------------------------------------------------------------------------*/}
-{/* Header--------------------------------------------------------------------------------------------------------------------------*/}
 
 
 
-{/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
         <div style={{ color:'black',fontWeight: 'bold',textShadow:' 2px 2px 20px #000000'}}>Objective: Construction of the Square Root Spiral.</div>
 {/* Title---------------------------------------------------------------------------------------------------------------------------*/}
-{/* Title---------------------------------------------------------------------------------------------------------------------------*/}
 
 
 
-{/* WorkPlace-----------------------------------------------------------------------------------------------------------------------*/}
 {/* WorkPlace-----------------------------------------------------------------------------------------------------------------------*/}
         <div className='workplace'>
 
-            {/* Square--------------------------------------------------------------------------------------------------------------*/}
             {/* Square--------------------------------------------------------------------------------------------------------------*/}
                 <div>                    
                         <div className="canvas-container">
@@ -1004,19 +992,14 @@ return (
                         </div>
                 </div>
             {/* Square--------------------------------------------------------------------------------------------------------------*/}
-            {/* Square--------------------------------------------------------------------------------------------------------------*/}
             
-            {/* Rectangle-----------------------------------------------------------------------------------------------------------*/}
             {/* Rectangle-----------------------------------------------------------------------------------------------------------*/}
             <div>
                     <div className='rec'>
-                    <br></br>
-                    {/* <div className='labels'> Try calculating the hypotenious you found.</div> */}
-                    
-                        {/* <div className='labels'><div className='labels'>Considering side <i>a</i> to be always 1.</div></div> */}
+                    <br></br>                 
+
                         <div className='labels'><div className='labels' style={{fontWeight:'bold'}}>Till which Square Root value do you want to draw?</div></div>
 
-                        {/* {showErrorModal ?null :(<div className='labels'>Root : √ <input type='number' name='input1' className='btn' onChange={handleClick}></input></div>)} */}
                         <br></br>
 
                         {showErrorModal ? null : (
@@ -1028,7 +1011,6 @@ return (
                                 ) : (<>
                                       <div>
                                           <div className='labels' >Calculate value of √{data}.</div>
-                                          {/* <br></br> */}
                                           <div className='labels' style={{margin:'5px',color:'red',fontWeight:'bold'}}> √{count} Square Root Spiral drawn.</div>
                                       </div>
                                   </>
@@ -1036,16 +1018,9 @@ return (
                             </div>
                         )}
 
-                        {/* <div ><div className='labels'><br></br>( {print ? <>{data}</> : null} )</div></div> */}
-                        {/* <div ><div className='labels'><br></br>( {print ? <>{m1}</> : null} )</div></div> */}
-
-
                         <br></br>
-                        {/* <br></br> */}
 
                         <div ><div className='labels' style={{fontWeight:'bold'}}> Controls :</div></div>
-
-                        {/* <img src='./src/components/diagram1.png' className='diagram'></img><br></br> */}
 
                         <div className='bindnew'>
                             {showErrorModal ?null :(<button className='btn' onClick={rotateByTenDegrees}><div className='btndiv'>Rotate by 10°</div></button>)}
@@ -1084,16 +1059,12 @@ return (
                             <br></br>
 
                         </div>
-
-                        
-                        {/* <p className='labels'>Protrator is rotated by angle: {angle}°</p> */}
                     
                     </div>
                 </div>
             {/* Rectangle-----------------------------------------------------------------------------------------------------------*/}
-            {/* Rectangle-----------------------------------------------------------------------------------------------------------*/}
+
         </div>
-{/* WorkPlace-----------------------------------------------------------------------------------------------------------------------*/}
 {/* WorkPlace-----------------------------------------------------------------------------------------------------------------------*/}
 
 

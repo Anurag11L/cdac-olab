@@ -12,7 +12,6 @@ const questions = [
     options: ['True', 'False'],
     answer: 'False',
     explanation: 'A number line contains both positive and negative numbers. Since, square root of negative number is not a real number, and negative numbers cannot be expressed as the square root of a natural number(m), not every point on the number line can be represented in the form √m where m is a natural number.',
-    // image:'src/components/spiral.png'
 
   },
   {
@@ -27,10 +26,8 @@ const questions = [
     options: ['Yes', 'No'],
     answer: 'No',
     explanation: 'Root of 4.35 cannot be calculated using Square Root Spiral.',
-    // image:'src/components/spiral.png'
 
   },
-  // Add more questions...
 ];
 
 function Quiz() {

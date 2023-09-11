@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import Square from './Square';
 import Rec from './Rectangle';
-// import Draggable from "react-draggable";
-// import Header from './Header';
 
 const Board = () => {
   const [dragging, setDragging] = useState(false);
@@ -18,16 +16,10 @@ const Board = () => {
 
   return (
     <div className="board">
-      {/* <Header/> */}
       <br></br>
       <Square />
       <Rec />
 
-      {/* <Draggable bounds=".square" onStart={handleDragStart} onStop={handleDragStop} >
-        <div className={`draggable-element ${dragging ? "dragging" : ""}`}>
-          <img src='./src/components/protractor11-removebg-preview.png'></img>
-        </div>
-      </Draggable> */}
 
       <style>
         {`

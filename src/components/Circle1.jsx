@@ -8,10 +8,10 @@ const Simulator = () => {
   const [distance, setDistance] = useState(null);
 
   const [count, setCount] = useState(1);
-  const [x, setX] = useState(1);
-  const [y, setY] = useState(1);
+  const [x] = useState(1);
+  const [y] = useState(1);
   const [d, setD] = useState(1);
-  const [c, setC] = useState(0);
+  const [c] = useState(0);
 
   const [angleText, setAngleText] = useState(0);
 // Canvas-----------------------------------------------------------------//
