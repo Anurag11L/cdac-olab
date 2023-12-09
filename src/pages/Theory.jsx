@@ -12,7 +12,7 @@ const Theory = () => {
                 <a href='/theory' className='logo'>Square Root Spiral</a>
                 <nav className='navbar'>
                     <ul className='menu'>
-                            <NavLink to="/theory" className="nava"><div className='linktitle'>Theory</div></NavLink>
+                            <NavLink to="/theory" className="nava active"><div className='linktitle'>Theory</div></NavLink>
                             <NavLink to="/animation" className="nava"><div className='linktitle'>Animation</div></NavLink>
                             <NavLink to="/simulator" className="nava"><div className='linktitle'>Simulator</div></NavLink>
                             <NavLink to="/selfevaluation" className="nava"><div className='linktitle'>Self-Evaluation</div></NavLink>

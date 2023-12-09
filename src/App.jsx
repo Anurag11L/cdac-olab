@@ -1,6 +1,5 @@
 import './App.css'
 import {BrowserRouter,Routes,Route} from "react-router-dom";
-import Home from './pages/Home';
 import Theory from "./pages/Theory";
 import Animation from './pages/Animation';
 import Simulator from "./pages/Simulator";
@@ -15,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/' element={<Theory></Theory>}></Route>
           <Route path="/theory" element={<Theory></Theory>}></Route>
           <Route path='/animation' element={<Animation></Animation>}></Route>
           <Route path="/simulator" element={<Simulator></Simulator>}></Route>
