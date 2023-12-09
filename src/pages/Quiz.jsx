@@ -47,7 +47,7 @@ function Quiz() {
   const calculateScore = () => {
     let score = 0;
     for (let i = 0; i < questions.length; i++) {
-      if (answers[i] === questions[i].answer) {
+      if (answers[i] === questions[i].answer)  {
         score++;
       }
     }
