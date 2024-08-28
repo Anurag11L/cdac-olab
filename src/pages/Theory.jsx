@@ -42,7 +42,7 @@ const Theory = () => {
         <div style={{ fontSize: '', fontWeight: '' ,textAlign:'left',marginLeft:'0px',width:'100%',textShadow:' 2px 2px 50px #000000'}}>To draw a square root spiral, start with a point as the origin. Draw a right-angled triangle with sides of length 1, √2, and 1, then rotate it 90 degrees. Attach the hypotenuse's end to the previous triangle's right-angle vertex to form a new triangle. Repeat this process, increasing the length of the hypotenuse by √3, √4, √5, and so on. Continue adding triangles to create a smooth spiral. Each triangle represents a square root of a natural number. As the sequence grows, the spiral expands outward, forming the mesmerizing Square Root Spiral.
         </div>
         <br></br>
-        <img src='./src/components/spiral.png' className='spiral' ></img>
+        <img src='./static/images/spiral.png' className='spiral' ></img>
 
 
         <p style={{ fontSize: '5vh', fontWeight: 'bold' ,textAlign:'left',marginLeft:'0px',width:'100%',textShadow:' 2px 2px 50px #000000'}}>
@@ -54,7 +54,7 @@ const Theory = () => {
         <br></br>
         
         <figure>
-            <img src='./src/components/shell.jpg' className='spiral' style={{margin:"auto"}}></img>
+            <img src='./static/images/shell.jpg' className='spiral' style={{margin:"auto"}}></img>
             <figcaption>Existence of Square Root Spiral in Nature.</figcaption>
         </figure>
         </div>

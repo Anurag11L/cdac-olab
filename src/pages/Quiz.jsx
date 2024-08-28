@@ -19,7 +19,7 @@ const questions = [
     options: ['√7', '√2','√4','√5'],
     answer: '√4',
     explanation: ' The length of OC is √4.',
-    image:'src/components/spiralQ.jpg'
+    image:'static/images/spiralQ.jpg'
   },
   {
     question: 'Can we use Square Root Spiral to calculate root of 4.35 ?',
