@@ -9,7 +9,7 @@ const Theory = () => {
     <br></br>
         <header>
             <div>
-                <a href='/theory' className='logo'>Square Root Spiral</a>
+                <a href='/' className='logo'>Square Root Spiral</a>
                 <nav className='navbar'>
                     <ul className='menu'>
                             <NavLink to="/theory" className="nava active"><div className='linktitle'>Theory</div></NavLink>
