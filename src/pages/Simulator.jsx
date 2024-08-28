@@ -975,7 +975,7 @@ return (
                                 <Draggable bounds=".square" axis="both" handle=".drag-handle">
                                     <div className="drag-element">
                                         <img
-                                          src="./src/components/protractor1.png"
+                                          src="./static/images/protractor1.png"
                                           alt="protractor"
                                           height={"150px"}
                                           className="protract"
